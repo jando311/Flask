@@ -1,0 +1,17 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<p>Guess the word: {{unknown_word}}</p>
+<p>Please guess a Letter or Word!</p>
+<form action="#" method = 'post'>
+    <p><input type = 'text' name = 'guess' /></p>
+    <p><input type = 'submit' value = 'submit' /></p>
+</form>
+<u1>Your previous guessed Letters:</u1>
+<u1>
+    {% for guess in guessed_letters %}
+        <liv>{{guess}}</liv>
+    {% endfor %}
+</u1>
+<p> Total tries: {{tries}}</p>
+{% endblock %}
