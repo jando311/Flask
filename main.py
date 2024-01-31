@@ -50,7 +50,7 @@ def game ():
         for position in positions:
             unknown_word[position] = variable
 
-    def hangman_game_func (word):
+    def hangman_game_func (guess, word):
         unknown_word = session ['unknown_word']
         tries = session ['tries']
         guessed_letters = session ['guessed_letters']
@@ -119,7 +119,7 @@ def game ():
 
     if request.method =='POST':
         guess = request.form ['guess']
-        hangman_game_func (word)
+        hangman_game_func (guess, word)
         return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = list (len (word)*'_'), result = session ['result'])
   
 
