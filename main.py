@@ -50,11 +50,10 @@ def game ():
         for position in positions:
             unknown_word[position] = variable
 
-    def hangman_game_func ():
+    def hangman_game_func (word):
         unknown_word = session ['unknown_word']
         tries = session ['tries']
         guessed_letters = session ['guessed_letters']
-        guessed_word = session ['guessed_word']
 
         if unknown_word == list (word) or guess == word:
             flash ('You have won! Congratulations!')
@@ -67,34 +66,29 @@ def game ():
         else:
             print (tries)
             print (unknown_word) 
-            guess = input ("Guess a letter or a word: ")
             
             if guess in guessed_letters and len(guess) == 1:
                     print ("You already guessed,",guess,"try again") 
                      
 
             if guess in word and len(guess)==1 and guess.isalpha:
-                    value -= 1
                     guessed_letters.append(guess) 
                     print ("Congratulations",guess,"is in the word!")
                     get_index (guess)
                     
             
-            if guess in session ['guessed_word']:
+            if guess in session ['guessed_letters']:
                     print ("You already guessed,",guess,"try again") 
                      
 
             if guess != word and len(guess)==1 and guess.isalpha:
                     session ['tries'] -= 1
-                    value += 1
                     guessed_letters.append(guess)
                     print ("No,",guess,"is not in the word")
                       
 
             if guess != word:
                     tries -= 1
-                    value += 1
-                    session ['guessed_word'].append (guess)
                     print ("No,",guess,"is not the word")
                 
 
@@ -125,9 +119,7 @@ def game ():
 
     if request.method =='POST':
         guess = request.form ['guess']
-        session ['guessed_letters'].append(guess)
-        session ['guessed_word'].append(guess) 
-        hangman_game_func ()
+        hangman_game_func (word)
         return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = list (len (word)*'_'), result = session ['result'])
   
 
