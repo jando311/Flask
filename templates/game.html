@@ -1,6 +1,13 @@
 {% extends 'home.html' %}
 
 {% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for msg in messages %}
+        <p>{{msg}}</p>
+    {% endfor %}
+{% endif %}
+{% endwith %}
 <p>Guess the word: {{unknown_word}}</p>
 <p>Please guess a Letter or Word!</p>
 <form action="#" method = 'post'>
@@ -14,4 +21,7 @@
     {% endfor %}
 </u1>
 <p> Total tries: {{tries}}</p>
+<form action="{{url_for('endgame')}}" method = "post">
+    <p>    <input type="submit" value = 'Reset game'></p>
+</form>
 {% endblock %}

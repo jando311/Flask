@@ -3,7 +3,7 @@ from datetime import timedelta
 import random
 
 app = Flask (__name__)
-app.secret_key = 'hello'
+app.secret_key = 'whipe'
 
 @app.route('/')
 def home ():
@@ -12,7 +12,7 @@ def home ():
 @app.route ('/login', methods = ['POST', 'GET']) 
 def login ():
     if request.method == 'POST':
-        user = request.form ['nm']
+        user = request.form ['user']
         session['user'] = user
         flash (f'You have been logged in, {user}!')
         return redirect(url_for('user'))
@@ -20,7 +20,7 @@ def login ():
     else:
         if 'user' in session:
             flash ('You are already logged in!')
-            return redirect (url_for('home'))
+            return redirect (url_for('user'))
         
         return render_template ('login.html')
 
@@ -37,14 +37,9 @@ def logout ():
     return redirect (url_for ('login'))
 
 
-
-
 @app.route ('/game', methods = ['POST', 'GET'])
-
-## HERE WE ARE CREATING ALL VARIABLES WE NEED FROM THE USER AND DATABASE TO MAKE THE GAME RUN
-
 def game ():
-
+         
     def get_index (variable, unknown_word):
         positions = [i for i, letter in enumerate (word) if letter == variable]
         for position in positions:
@@ -59,11 +54,11 @@ def game ():
 
         if unknown_word == list (word) or guess == word:
             flash ('You have won! Congratulations!')
-            return True
+            return redirect (url_for('endgame', scenario = 'win'))
             
         elif tries == 0:
             flash ('You are out of tries! Game over!')
-            return False
+            return redirect (url_for('endgame', scenario = 'lose'))
         
         else:
             print (tries)
@@ -101,12 +96,11 @@ def game ():
                     tries -= 1
                     print ("No, not the word!")
                     return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
+        
 
-                
 
     word = 'House'
     
-
     if 'unknown_list' not in session:
         session ['unknown_word'] = list ( len (word)* '_')
 
@@ -119,8 +113,8 @@ def game ():
     if 'hint_used' not in session:
         session ['hint_used'] = 'hint_used'
     
-    if 'hint_used' not in session:
-        session ['hint_used'] = 'hint_used'
+    if 'hint_2_used' not in session:
+        session ['hint_used'] = 'hint_2_used'
 
     if 'variable' not in session:
         session ['variable'] = 'variable'
@@ -137,7 +131,19 @@ def game ():
     return render_template ('game.html', unknown_word = session ['unknown_word'])
 
 
+@app.route ('/endgame')
+def endgame ():
+     if request.method == 'GET':
+        word = 'House'
+        session ['unknown_word'] = list ( len (word)* '_')
+        session ['guessed_letters'] = []   
+        session ['tries'] = 6 
+        session ['variable'] = 'variable'
+        session ['result'] = 'result'
 
+        return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
+     
+     
 if __name__ == '__main__':
     app.run(debug=True) 
 
