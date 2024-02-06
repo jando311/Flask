@@ -43,8 +43,9 @@ def game ():
     def get_index (variable, unknown_word):
         positions = [i for i, letter in enumerate (unknown_word) if letter == variable]
         for position in positions:
-            unknown_word[position] = variable  
-        print ('hi')
+            unknown_word[position] = variable
+        return unknown_word
+         
 
     def hangman_game_func (guess, word):
         print (word)
@@ -72,8 +73,8 @@ def game ():
             if guess in word and len(guess)==1 and guess.isalpha:
                     guessed_letters.append(guess) 
                     flash ("Congratulations, you found a Letter!")
-                    get_index (guess, unknown_word)
-                    session ['unknown_word'] = unknown_word
+                    session ['unknown_word'] = get_index (guess, unknown_word)
+                    print (unknown_word)
                     return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
 
                     
@@ -103,7 +104,7 @@ def game ():
 
     word = 'House'
     
-    if 'unknown_list' not in session:
+    if 'unknown_word' not in session:
         session ['unknown_word'] = list ( len (word)* '_')
 
     if 'guessed_letters' not in session:
