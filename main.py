@@ -44,6 +44,7 @@ def game ():
         positions = [i for i, letter in enumerate (word) if letter == variable]
         for position in positions:
             unknown_word[position] = variable
+            
 
     def hangman_game_func (guess, word):
         print (word)
@@ -51,8 +52,10 @@ def game ():
         unknown_word = session ['unknown_word']
         tries = session ['tries']
         guessed_letters = session ['guessed_letters']
+        guess_lower = guess.lower()
+        unknown_word_lower = word.lower()
 
-        if unknown_word == list (word) or guess == word:
+        if unknown_word_lower == list (word) or guess_lower == word:
             flash ('You have won! Congratulations!')
             return redirect (url_for('endgame', scenario = 'win'))
             
@@ -62,37 +65,37 @@ def game ():
         
         else:
             print (tries)
-            print (unknown_word) 
+            print (unknown_word_lower) 
             
-            if guess in guessed_letters and len(guess) == 1:
+            if guess_lower in guessed_letters and len(guess_lower) == 1:
                     flash ("You already guessed that, try again!") 
                     return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
                     
 
-            if guess in word and len(guess)==1 and guess.isalpha:
-                    guessed_letters.append(guess) 
+            if guess_lower in unknown_word_lower and len(guess_lower)==1 and guess_lower.isalpha:
+                    guessed_letters.append(guess_lower) 
                     flash ("Congratulations, you found a Letter!")
-                    get_index (guess, unknown_word)
+                    get_index (guess_lower, unknown_word)
                     session ['unknown_word'] = unknown_word
                     return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
 
                     
             
-            if guess in session ['guessed_letters']:
+            if guess_lower in session ['guessed_letters']:
                     flash ("You already guessed that, try again!") 
                     return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
 
                      
 
-            if guess != word and len(guess)==1 and guess.isalpha:
+            if guess_lower != word and len(guess_lower)==1 and guess_lower.isalpha:
                     session ['tries'] -= 1
-                    guessed_letters.append(guess)
+                    guessed_letters.append(guess_lower)
                     flash ("No, not in the word!")
                     return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
 
                       
 
-            if guess != word:
+            if guess_lower != word:
                     tries -= 1
                     print ("No, not the word!")
                     return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
@@ -131,7 +134,7 @@ def game ():
     return render_template ('game.html', unknown_word = session ['unknown_word'])
 
 
-@app.route ('/endgame')
+@app.route ('/endgame', methods = ['POST', 'GET'])
 def endgame ():
      if request.method == 'GET':
         word = 'House'
