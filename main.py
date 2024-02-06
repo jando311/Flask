@@ -44,6 +44,7 @@ def game ():
         positions = [i for i, letter in enumerate (unknown_word) if letter == variable]
         for position in positions:
             unknown_word[position] = variable  
+        print ('hi')
 
     def hangman_game_func (guess, word):
         print (word)
