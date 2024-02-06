@@ -44,7 +44,7 @@ def game ():
         positions = [i for i, letter in enumerate (word) if letter == variable]
         for position in positions:
             unknown_word[position] = variable
-            
+
 
     def hangman_game_func (guess, word):
         print (word)
@@ -136,16 +136,20 @@ def game ():
 
 @app.route ('/endgame', methods = ['POST', 'GET'])
 def endgame ():
-     if request.method == 'GET':
+    if request.method == 'POST':
         word = 'House'
         session ['unknown_word'] = list ( len (word)* '_')
         session ['guessed_letters'] = []   
         session ['tries'] = 6 
         session ['variable'] = 'variable'
         session ['result'] = 'result'
-
+        return redirect (url_for ('game'))    
+   
+    elif request.method == 'GET':
         return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
-     
+    
+
+    return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
      
 if __name__ == '__main__':
     app.run(debug=True) 
