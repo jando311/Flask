@@ -7,6 +7,21 @@ import csv
 app = Flask (__name__)
 app.secret_key = 'whipe'
 
+conn = sqlite3.connect ('small_dictionary.db')
+cursor = conn.cursor ()
+
+cursor.execute ('SELECT * FROM my_table ORDER BY RANDOM() LIMIT 1')
+
+random_row = cursor.fetchone()
+
+conn.close 
+
+if random_row:
+    random_word, random_definition = random_row 
+
+print (random_word)
+print (random_definition)
+
 @app.route('/')
 def home ():
     return render_template('home.html')
@@ -43,7 +58,7 @@ def logout ():
 def game ():
 
     def get_index (variable, unknown_word):
-        positions = [i for i, letter in enumerate (word) if letter == variable]
+        positions = [i for i, letter in enumerate (random_word) if letter == variable]
         for position in positions:
             unknown_word[position] = variable
         print (unknown_word)
@@ -79,11 +94,7 @@ def game ():
                     return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
 
                      
-                         
-                    
-                   
-                    
-            
+                          
         if guess in session ['guessed_letters']:
                     flash ("You already guessed that, try again!") 
                     return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
@@ -103,14 +114,9 @@ def game ():
                     print ("No, not the word!")
                     return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
         
-
-
-                  
-
-    word = 'House'
     
     if 'unknown_word' not in session:
-        session ['unknown_word'] = list ( len (word)* '_')
+        session ['unknown_word'] = list ( len (random_word)* '_')
 
     if 'guessed_letters' not in session:
         session ['guessed_letters'] = []   
@@ -132,7 +138,7 @@ def game ():
 
     if request.method =='POST':
         guess = request.form ['guess']
-        hangman_game_func (guess, word)
+        hangman_game_func (guess, random_word)
         return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
   
 
@@ -142,8 +148,22 @@ def game ():
 @app.route ('/endgame', methods = ['POST', 'GET'])
 def endgame ():
     if request.method == 'POST':
-        word = 'House'
-        session ['unknown_word'] = list ( len (word)* '_')
+        conn = sqlite3.connect ('small_dictionary.db')
+        cursor = conn.cursor ()
+
+        cursor.execute ('SELECT * FROM my_table ORDER BY RANDOM() LIMIT 1')
+
+        random_row = cursor.fetchone()
+
+        conn.close 
+
+        if random_row:
+            random_word, random_definition = random_row 
+
+        print (random_word)
+        print (random_definition)
+        
+        session ['unknown_word'] = list (len (random_word)*'_')
         session ['guessed_letters'] = []   
         session ['tries'] = 6 
         session ['variable'] = 'variable'
