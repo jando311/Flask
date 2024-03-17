@@ -4,7 +4,7 @@ import csv
 
 csv_file = 'clean_dictionary.csv'
 
-conn = sqlite3.connect ('dictionary.db')
+conn = sqlite3.connect ('small_dictionary.db')
 cursor = conn.cursor ()
 
 cursor.execute ('''CREATE TABLE IF NOT EXISTS my_table (
