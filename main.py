@@ -149,14 +149,11 @@ def game ():
 @app.route ('/hints', methods = ['POST', 'GET'])
 def get_hint ():
      if request.method == 'POST':
-        if session ['value'] == 2 and not session ['hint_used']:
-            get_hint ()
-            return redirect (url_for ('game'))
-        
-        if session ['value'] == 3 and not session ['hint_2_used']:
-            get_hint_2 ()
-            return redirect (url_for ('game'))
-               
+        session ['random_word'] = get_word()[0]
+        session ['random_definition'] = get_word()[1]
+        flash (session ['random_definition'])
+        return render_template ('game.html')
+
 @app.route ('/endgame', methods = ['POST', 'GET'])
 def endgame ():
     if request.method == 'POST': 
