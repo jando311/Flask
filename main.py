@@ -127,10 +127,10 @@ def game ():
         session ['tries'] = 6 
 
     if 'hint_used' not in session:
-        session ['hint_used'] = 'hint_used'
+        session ['hint_used'] = False
     
     if 'hint_2_used' not in session:
-        session ['hint_used'] = 'hint_2_used'
+        session ['hint_used'] = False
 
     if 'value' not in session:
         session ['value'] = 0
@@ -143,18 +143,26 @@ def game ():
     if request.method =='POST':
         guess = request.form ['guess']
         hangman_game_func (guess,  session ['random_word'], session ['random_definition'])
-        return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'])
+        return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'], hint_used = session ['hint_used'], hint_2_used = session ['hint_2_used'])
       
     return render_template ('game.html', unknown_word = session ['unknown_word'])
 
-@app.route ('/hints', methods = ['POST', 'GET'])
+@app.route ('/hint1', methods = ['POST', 'GET'])
 def get_hint ():
      if request.method == 'POST':
         session ['random_word'] = get_word()[0]
         session ['random_definition'] = get_word()[1]
         flash (session ['random_definition'])
-        return render_template ('game.html')
-
+        return redirect (url_for ('game'))
+     
+@app.route ('/hint2', methods = ['POST', 'GET'])
+def get_hint2 ():
+     if request.method == 'POST':
+          session ['random_word'] = get_word()[0]
+          session ['random_definition'] = get_word ()[1]
+          flash (f'We will get our second hint soon.')
+          return redirect (url_for ('game'))
+     
 @app.route ('/endgame', methods = ['POST', 'GET'])
 def endgame ():
     if request.method == 'POST': 
