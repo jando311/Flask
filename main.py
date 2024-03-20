@@ -64,7 +64,6 @@ def game ():
     if 'random_word' not in session:
         session ['random_word'] = get_word()[0]
         session ['random_definition'] = get_word()[1]
-        print (session ['random_word'])
      
     def get_index (variable, unknown_word, random_word):
         positions = [i for i, letter in enumerate (random_word) if letter == variable]
@@ -138,6 +137,9 @@ def game ():
     if 'result' not in session:
         session ['result'] = 'result'
 
+    if 'uncovered_word' not in session:
+        session ['uncovered_word'] = ''.join(session ['unknown_word'])
+
     print (session ['random_word'])
 
     if request.method =='POST':
@@ -150,18 +152,15 @@ def game ():
 @app.route ('/hint1', methods = ['POST', 'GET'])
 def get_hint ():
      if request.method == 'POST':
-        session ['random_word'] = get_word()[0]
-        session ['random_definition'] = get_word()[1]
         flash (session ['random_definition'])
         return redirect (url_for ('game'))
      
 @app.route ('/hint2', methods = ['POST', 'GET'])
 def get_hint2 ():
      if request.method == 'POST':
-          session ['random_word'] = get_word()[0]
-          session ['random_definition'] = get_word ()[1]
-          flash (f'We will get our second hint soon.')
-          return redirect (url_for ('game'))
+        indexes_word = [i for i, value in enumerate (session ['uncovered_word']) if value == '_']
+        random_index = random.choice(session ['uncovered_word'])
+        return redirect (url_for ('game'))
      
 @app.route ('/endgame', methods = ['POST', 'GET'])
 def endgame ():
