@@ -18,14 +18,6 @@ def get_word ():
 
 random_word = get_word()
 
-def get_hint (new_definition):
-    print ('Your hint is:', new_definition)
-
-def get_hint_2 (unknown_word):
-     indexes_word = [i for i, value in enumerate (unknown_word) if value == '_']
-     random_index = random.choice (indexes_word)
-     
-
 
 @app.route('/')
 def home ():
@@ -57,6 +49,7 @@ def logout ():
         flash (f'You have been logged out,{user}')
     session.pop('user', None)
     return redirect (url_for ('login'))
+
 
 @app.route ('/game', methods = ['POST', 'GET'])
 def game ():
@@ -121,7 +114,7 @@ def game ():
 
     if 'guessed_letters' not in session:
         session ['guessed_letters'] = []   
-    
+        
     if 'tries' not in session:
         session ['tries'] = 6 
 
@@ -129,7 +122,7 @@ def game ():
         session ['hint_used'] = False
     
     if 'hint_2_used' not in session:
-        session ['hint_used'] = False
+        session ['hint_2_used'] = False
 
     if 'value' not in session:
         session ['value'] = 0
@@ -140,6 +133,8 @@ def game ():
     if 'uncovered_word' not in session:
         session ['uncovered_word'] = ''.join(session ['unknown_word'])
 
+    if 'unguessed_letters' not in session:
+         session ['unguessed_letters'] = [letter for letter in random_word if letter not in session ['guessed_letters']]
     print (session ['random_word'])
 
     if request.method =='POST':
@@ -157,11 +152,19 @@ def get_hint ():
      
 @app.route ('/hint2', methods = ['POST', 'GET'])
 def get_hint2 ():
-     if request.method == 'POST':
-        indexes_word = [i for i, value in enumerate (session ['uncovered_word']) if value == '_']
-        random_index = random.choice(session ['uncovered_word'])
-        return redirect (url_for ('game'))
-     
+    if request.method == 'POST':
+        word = session.get ('random_word', [])
+        guessed_letters = session.get ('guessed_letters', [])
+        unknown_word = session.get ('unknown_word')
+        unguessed_letters = [letter for letter in word if letter not in guessed_letters]
+
+        random_letter = random.choice (unguessed_letters)
+        index = word.index (random_letter)
+        unknown_word[index] = random_letter
+        guessed_letters.append(random_letter)
+        
+    return redirect (url_for ('game'))
+
 @app.route ('/endgame', methods = ['POST', 'GET'])
 def endgame ():
     if request.method == 'POST': 
