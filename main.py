@@ -6,8 +6,7 @@ import csv
 import random 
 
 app = Flask (__name__)
-app.secret_key = 'whipe'
-
+app.secret_key = 'which'
 def get_word ():
     conn = sqlite3.connect ('small_dictionary.db')
     cursor = conn.cursor ()
@@ -180,6 +179,7 @@ def endgame ():
         session ['hint_used'] = False
         session ['hint_2_used'] = False
         session ['value'] = 0 
+        session.pop ('message', None)
         return redirect (url_for ('game'))
      
 if __name__ == '__main__':

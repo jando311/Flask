@@ -3,12 +3,13 @@
 {% block content %}
 
 {% with messages = get_flashed_messages() %}
-{% if messages %}
-    {% for msg in messages %}
-        <p>{{msg}}</p>
-    {% endfor %}
-{% endif %}
+    {% if messages %}
+        {% for msg in messages %}
+            <p>{{msg}}</p>
+        {% endfor %}
+    {% endif %}
 {% endwith %}
+
 
 <p>Guess the word: {{unknown_word}}</p>
 
