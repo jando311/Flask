@@ -1,0 +1,1 @@
+SELECT * FROM databasev1.dictionary;

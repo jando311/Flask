@@ -16,6 +16,12 @@ def get_word ():
     conn.close 
     return random_row
 
+def get_index (variable, unknown_word, random_word):
+        positions = [i for i, letter in enumerate (random_word) if letter == variable]
+        for position in positions:
+            unknown_word[position] = variable
+        return unknown_word
+
 random_word = get_word()
 
 
@@ -57,12 +63,6 @@ def game ():
     if 'random_word' not in session:
         session ['random_word'] = get_word()[0]
         session ['random_definition'] = get_word()[1]
-     
-    def get_index (variable, unknown_word, random_word):
-        positions = [i for i, letter in enumerate (random_word) if letter == variable]
-        for position in positions:
-            unknown_word[position] = variable
-        return unknown_word
 
     def hangman_game_func (guess, word, random_definition):
         unknown_word = session ['unknown_word']
@@ -152,16 +152,17 @@ def get_hint ():
      
 @app.route ('/hint2', methods = ['POST', 'GET'])
 def get_hint2 ():
+        
     if request.method == 'POST':
         word = session.get ('random_word', [])
         guessed_letters = session.get ('guessed_letters', [])
         unknown_word = session.get ('unknown_word')
         unguessed_letters = [letter for letter in word if letter not in guessed_letters]
-
+ 
         random_letter = random.choice (unguessed_letters)
-        index = word.index (random_letter)
-        unknown_word[index] = random_letter
+        session ['unknown_word'] = get_index (random_letter, unknown_word, word)
         guessed_letters.append(random_letter)
+        session ['guessed_letters'] = guessed_letters
         
     return redirect (url_for ('game'))
 
