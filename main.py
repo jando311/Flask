@@ -26,7 +26,7 @@ random_word = get_word()
 
 @app.route('/')
 def home ():
-    return render_template('creative.html')
+    return render_template('home.html')
 
 @app.route ('/login', methods = ['POST', 'GET']) 
 def login ():
@@ -45,7 +45,7 @@ def login ():
 
 @app.route ('/dashboard')
 def user ():
-    return render_template ('creative.html')
+    return render_template ('home.html')
 
 @app.route ('/logout')
 def logout ():
