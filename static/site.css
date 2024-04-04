@@ -7,6 +7,10 @@ h1 {
     color: white;
     text-align: center; 
     font-family: 'Courier New', Courier, monospace;
+    font-size: 75px;
+    font-weight: bold;
+    margin-top: 25px;
+    text-decoration: underline;
 }
 
 h2 {
@@ -43,7 +47,9 @@ li a:hover {
 }
 
 .button {
-    display: block;
+    position: absolute;
+    top: 150px;
+    right: 150px;
     padding: 15px 25px;
     margin-top: 75px;
     margin-left: 350px;
@@ -72,7 +78,9 @@ li a:hover {
 }
 
 .button1 {
-    display: block;
+    position: absolute;
+    top: 300px;
+    right: 150px;
     padding: 15px 25px;
     margin-top: 75px;
     margin-left: 350px;
@@ -98,4 +106,30 @@ li a:hover {
     background-color: #8e3e3e;
     box-shadow: 0 5px #666;
     transform: translateY(8px); 
+}
+
+.words {
+    position: absolute;
+    top: 150px;
+    left: 150px;
+    margin-top: 75px;
+    margin-right: 350px;
+}
+
+.words1 {
+    position: absolute;
+    top: 300px;
+    left: 150px;
+    margin-top: 75px;
+    margin-right: 350px;
+}
+
+footer {
+    position: fixed;
+    left: 5px;
+    right: 5px;
+    bottom: 0;
+    background-color:#100077;
+    color: white;
+    text-align: center;
 }
