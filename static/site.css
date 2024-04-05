@@ -133,3 +133,7 @@ footer {
     color: white;
     text-align: center;
 }
+
+img {
+    position: static;
+}

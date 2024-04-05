@@ -1,8 +1,10 @@
-<!doctype html> 
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='site.css')}}"/>
-    <title>{% block title %}Joshua's Hangman{% endblock %} </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='site.css')}}"/>
+  <title>{% block title %}Joshua's Hangman{% endblock %} </title>
 </head>
 <body>
     <ul>
@@ -12,8 +14,8 @@
     </ul>
     <div class="welcome">
       <section>
+        <img src="pictures/hangman-game.png" alt="logo" style="width:300px" />
         <article class="item">
-          <h1>HANGMANGAME</h1>
           <p class="words">This text will be replaced later, as of now its only purpose is to see how more than just one line of text will look with the button.</p>
           <p class="clickable"><button type="button" class="button">PLAY</button></p>
           <p class="words1">This text will be replaced NEVER, as of now its only purpose is to see how more than just one line of text will look with the button.</p>
