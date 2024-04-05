@@ -48,7 +48,7 @@ li a:hover {
 
 .button {
     position: absolute;
-    top: 150px;
+    top: 200px;
     right: 150px;
     padding: 15px 25px;
     margin-top: 75px;
@@ -79,7 +79,7 @@ li a:hover {
 
 .button1 {
     position: absolute;
-    top: 300px;
+    top: 400px;
     right: 150px;
     padding: 15px 25px;
     margin-top: 75px;
@@ -110,7 +110,7 @@ li a:hover {
 
 .words {
     position: absolute;
-    top: 150px;
+    top: 200px;
     left: 150px;
     margin-top: 75px;
     margin-right: 350px;
@@ -118,7 +118,7 @@ li a:hover {
 
 .words1 {
     position: absolute;
-    top: 300px;
+    top: 400px;
     left: 150px;
     margin-top: 75px;
     margin-right: 350px;
