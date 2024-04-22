@@ -3,6 +3,8 @@ body {
     background-size: 80%;
     background-position-y: center;
     background-position-x: center;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 h1 {
     color: white;
@@ -25,19 +27,21 @@ p {
 }
 
 .menu {
-    border: 3px solid white;
+    border: 5px solid rgb(0, 0, 0);
     background-color: white;
-    margin-top: 98px;
+    margin-top: 240px;
     margin-left: auto;
     margin-right:auto;
     width: 80%;
-    padding: 125px 0;
+    padding: 40px 40px;
+
 }
 
 .menu p {
-    line-height: 1.5;
-    display: inline-block;
-    vertical-align: center;
+    line-height: 8;
+    display: block;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: small;
 }
 
 ul {
@@ -68,28 +72,27 @@ li a:hover {
 }
 
 .button {
-    position: absolute;
-    top: 150px;
-    right: 150px;
+    position: fixed;
+    top: 29.3%;
+    right: 10%;
     padding: 15px 25px;
     margin-top: 75px;
-    margin-left: 350px;
-    font-size: 24px;
+    font-size: 18px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
     outline: none;
-    color: #000000;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #98beff;
     border: black;
     border-radius: 15px;
     box-shadow: 0 9px #999;
 }
 
 .button:hover {
-    background-color: #949494;
+    background-color: #6d87b5;
 }
 
 .button:active {
@@ -99,13 +102,13 @@ li a:hover {
 }
 
 .button1 {
-    position: absolute;
-    top: 400px;
-    right: 150px;
+    position: fixed;
+    top: 40.8%;
+    right: 10%;
     padding: 15px 25px;
     margin-top: 75px;
     margin-left: 350px;
-    font-size: 24px;
+    font-size: 18px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     cursor: pointer;
@@ -131,12 +134,21 @@ li a:hover {
 
 footer {
     position: fixed;
-    left: 5px;
-    right: 5px;
     bottom: 0;
+    left: 0px;
+    right: 0px;
     background-color:#000000;
-    color: white;
+    color: rgb(255, 255, 255);
     text-align: center;
+}
+
+footer p {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-style: italic;
+    font-size: x-small;
+    padding: 25px;
 }
 
 img {
