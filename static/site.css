@@ -1,174 +1,16 @@
-body {
-    background: url("https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/background.jpg");
-    background-size: 80%;
-    background-position-y: center;
-    background-position-x: center;
-    font-family:'Courier New', Courier, monospace;
-    font-weight: bold;
-}
-h1 {
-    color: rgb(0, 0, 0);
-    text-align: center; 
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 75px;
-    font-weight: bold;
-    margin-top: 25px;
-    text-decoration: underline;
-}
-
-h2 {
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    text-align: center; 
-}
-
-p {
-    color: black;
-}
-
-.menu {
-    border: 10px solid rgb(0, 0, 0);
-    background-color: white;
-    margin-top: 120px;
-    margin-left: auto;
-    margin-right:auto;
-    width: 80%;
-    padding: 40px 40px;
-    border-radius: 15px;
-
-}
-
-.menu p {
-    line-height: 8;
-    display: block;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: small;
-}
-
-ul {
-    list-style-type: none;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #ffffff;
-  }
-  
-li {
-    float: left;
-}
-  
-li a {
-    display: block;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-  
-li a:hover {
-    background-color: #949494;
-}
-
-.button {
-    position: absolute;
-    top: 29.3%;
-    right: 17%;
-    padding: 15px 25px;
-    margin-top: 75px;
-    font-size: 18px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #ffffff;
-    background-color: #98beff;
-    border: black;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
-
-.button:hover {
-    background-color: #6d87b5;
-}
-
-.button:active {
-    background-color:#5d5d5d;
-    box-shadow: 0 5px #666;
-    transform: translateY(8px); 
-}
-
-.button1 {
-    position: absolute;
-    top: 45%;
-    right: 17%;
-    padding: 15px 25px;
-    margin-top: 75px;
-    margin-left: 350px;
-    font-size: 18px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    color: #fff;
-    background-color: #ea1919;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
-
-.button1:hover {
-    background-color: #8e3e3e;
-}
-
-.button1:active {
-    background-color: #8e3e3e;
-    box-shadow: 0 5px #666;
-    transform: translateY(8px); 
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0px;
-    right: 0px;
-    background-color:#000000;
-    color: rgb(255, 255, 255);
-    text-align: center;
-}
-
-footer p {
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: lighter;
-    font-style: italic;
-    font-size: x-small;
-    padding: 25px;
-}
-
-img {
-    position: static;
-}
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 5px;
     padding: 10px 20px; /* Adjust padding as needed */
     background-color: white;
-    border-radius: 15px;
-    border: 5px solid rgb(0, 0, 0);
 }
   
 .navbar-links {
     list-style-type: none;
     border-radius: 15px;
+    border: 2px solid black;
 }
   
 .navbar-links li {
@@ -200,11 +42,123 @@ img {
     line-height: 80px;
 }
 
+body {
+    background: url("https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/background.jpg");
+    background-size: 80%;
+    background-position-y: center;
+    background-position-x: center;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.menu {
+    background-color: white;
+    margin: 90px 15px;
+    border-radius: 15px;
+    border: 10px solid rgb(0, 0, 0);
+}
+
+.menu p {
+    margin: 110px 50px;
+}
+
+ul {
+    list-style-type: none;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+li a:hover {
+    background-color: #949494;
+}
+
+.button {
+    position: absolute;
+    top: 26.2%;
+    right: 10%;
+    padding: 15px 25px;
+    margin-top: 75px;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #ffffff;
+    background-color: #98beff;
+    border: black;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.button:hover {
+    background-color: #6d87b5;
+}
+
+.button:active {
+    background-color:#5d5d5d;
+    box-shadow: 0 5px #666;
+    transform: translateY(8px); 
+}
+
+.button1 {
+    position: absolute;
+    top: 43.8%;
+    right: 10%;
+    padding: 15px 25px;
+    margin-top: 75px;
+    margin-left: 350px;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #ea1919;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.button1:hover {
+    background-color: #8e3e3e;
+}
+
+.button1:active {
+    background-color: #8e3e3e;
+    box-shadow: 0 5px #666;
+    transform: translateY(8px); 
+}
+
 .rule-sheet {
     color: black;
     background-color: white;
+    margin: 110px 15px;
     padding: 30px;
-    margin-top: 70px;
     text-align: center;
     line-height: 25px;
     font-size: small;
@@ -217,11 +171,13 @@ img {
     color: black;
     font-size: 25px;
     padding-bottom: 30px;
+    text-decoration: underline;
+
 }
 
 .login-form {
     background-color: white;
-    margin-top: 70px;
+    margin: 110px 15px;
     border-radius: 15px;
     border: 10px solid rgb(0, 0, 0);
 }
@@ -273,3 +229,21 @@ img {
     padding: 15px;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0px;
+    right: 0px;
+    background-color:#000000;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+footer p {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-style: italic;
+    font-size: x-small;
+    padding: 25px;
+}
