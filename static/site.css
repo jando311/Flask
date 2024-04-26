@@ -163,6 +163,7 @@ img {
     padding: 10px 20px; /* Adjust padding as needed */
     background-color: white;
     border-radius: 15px;
+    border: 5px solid rgb(0, 0, 0);
 }
   
 .navbar-links {
@@ -209,6 +210,7 @@ img {
     font-size: small;
     font-weight: bolder;
     border-radius: 15px;
+    border: 10px solid rgb(0, 0, 0);
 }
 
 .headline {
@@ -221,6 +223,7 @@ img {
     background-color: white;
     margin-top: 70px;
     border-radius: 15px;
+    border: 10px solid rgb(0, 0, 0);
 }
 
 .login-input {
@@ -251,6 +254,7 @@ img {
     box-shadow: 0 9px #999;
     padding: 12px 22px;
 }
+
 .submit-button:hover {
     background-color: #728ec0;
 }
@@ -266,7 +270,6 @@ img {
     font-weight: bolder;
     background-color: white;
     border-radius: 15px;
-    padding-bottom: 25px;
-    padding-top: 0;
+    padding: 15px;
 }
 
