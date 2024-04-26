@@ -7,6 +7,7 @@
   <title>{% block title %}Joshua's Hangman{% endblock %} </title>
 </head>
 <body>
+
     <div class="navbar">
       <img class='logo' src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/new_logo.png" alt="hangman logo">
       <ul class="navbar-links">
@@ -17,6 +18,15 @@
       </ul>
     </div>
   </nav>
+  <div class="login-msg">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+  </div>
   <div class="menu">
     <p>Familiar with the Rules and ready to play? Press PLAY.</p>
     <p><button type="button" class="button">PLAY</button></p>

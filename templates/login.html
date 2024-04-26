@@ -16,21 +16,21 @@
         <li><a href="/rules">RULES</a></li>
       </ul>
     </div>
+    <div class="login-msg">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <p>{{msg}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
     <div class="login-form">
         <form class='login-input' action = '#' method = 'post'>
             <h1 class="headline">Enter Your Name:</h1>
             <p><input class="submit-input" type = 'text' name = 'user' /></p>
             <p><input class="submit-button" type = 'submit' value = 'ENTER' /></p>
         </form>
-        <div class="login-msg">
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for msg in messages %}
-                        <p>{{msg}}</p>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-        </div>
     </div>
 </body>
 <footer>

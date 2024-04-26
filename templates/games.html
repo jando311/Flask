@@ -1,0 +1,46 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for msg in messages %}
+            <p>{{msg}}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+<p>Guess the word: {{unknown_word}}</p>
+
+<p>Please guess a Letter or Word!</p>
+<form action="#" method = 'post'>
+    <p><input type = 'text' name = 'guess' /></p>
+    <p><input type = 'submit' value = 'submit' /></p>
+</form>
+
+<u1>Your previous guessed Letters:</u1>
+<u1>
+    {% for guess in guessed_letters %}
+        <liv>{{guess}}</liv>
+    {% endfor %}
+</u1>
+
+<p> Total tries: {{tries}}
+    total value: {{value}}
+</p>
+<form action="{{url_for('endgame')}}" method = "post">
+    <p>    <input type="submit" value = 'New game'></p>
+</form>
+{% if value == 2 and hint_used == False %}
+    <form action="{{url_for('get_hint')}}" method = "post">
+        <p>    <input type="submit" value = 'Call Joker'></p>
+    </form>
+{% endif %}
+{% if value == 3 and hint_2_used == False %}
+    <form action="{{url_for('get_hint2')}}" method = "post">
+        <p>    <input type="submit" value = 'Call Joker'></p>
+    </form>
+{% endif %}
+   
+{% endblock %}
