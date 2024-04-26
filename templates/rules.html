@@ -16,25 +16,16 @@
         <li><a href="/rules">RULES</a></li>
       </ul>
     </div>
-    <div class="login-form">
-        <form class='login-input' action = '#' method = 'post'>
-            <h1 class="headline">Enter Your Name:</h1>
-            <p><input class="submit-input" type = 'text' name = 'user' /></p>
-            <p><input class="submit-button" type = 'submit' value = 'ENTER' /></p>
-        </form>
-        <div class="login-msg">
-            {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                    {% for msg in messages %}
-                        <p>{{msg}}</p>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-        </div>
+    <div class="rule-sheet">
+        <h1 class="headline">HANGMAN GAME - RULES</h1>
+        <p>The object of hangman is to guess the secret word before the stick figure is hung.</p>
+        <br>
+        <p>Players select letters to narrow the word down.</p>
+        <br>
+        <p>The Gameplay continues until the player guesses the word or they run out of guesses.</p>
     </div>
 </body>
 <footer>
     <p>@MADEBYJANDO</p>
 </footer>
 </html>
-

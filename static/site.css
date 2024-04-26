@@ -7,7 +7,7 @@ body {
     font-weight: bold;
 }
 h1 {
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center; 
     font-family: 'Courier New', Courier, monospace;
     font-size: 75px;
@@ -34,6 +34,7 @@ p {
     margin-right:auto;
     width: 80%;
     padding: 40px 40px;
+    border-radius: 15px;
 
 }
 
@@ -161,32 +162,32 @@ img {
     align-items: center;
     padding: 10px 20px; /* Adjust padding as needed */
     background-color: white;
+    border-radius: 15px;
 }
   
-  .navbar-links {
+.navbar-links {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    border-radius: 15px;
 }
   
-  .navbar-links li {
+.navbar-links li {
     display: inline-block;
-    margin-right: 10px; /* Adjust spacing between links */
+    margin-right: 10px; 
 }
   
-  .navbar-links li:last-child {
-    margin-right: 0; /* Remove margin from the last item */
+.navbar-links li:last-child {
+    margin-right: 0; 
 }
   
-  .navbar-links li a {
+.navbar-links li a {
     text-decoration: none;
-    color: #000; /* Set your desired text color */
+    color: #000;
 }
   
 .logo {
     float: right;
     vertical-align: top;
-    width: 100px;
+    width: 150px;
     height: 50px; 
 }
 
@@ -197,3 +198,75 @@ img {
     height: 50px;
     line-height: 80px;
 }
+
+.rule-sheet {
+    color: black;
+    background-color: white;
+    padding: 30px;
+    margin-top: 70px;
+    text-align: center;
+    line-height: 25px;
+    font-size: small;
+    font-weight: bolder;
+    border-radius: 15px;
+}
+
+.headline {
+    color: black;
+    font-size: 25px;
+    padding-bottom: 30px;
+}
+
+.login-form {
+    background-color: white;
+    margin-top: 70px;
+    border-radius: 15px;
+}
+
+.login-input {
+    color: black;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 25px
+}
+
+.login-input p {
+    font-size: 19px;
+    padding-bottom: 25px;
+}
+
+.submit-button {
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #98beff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    padding: 12px 22px;
+}
+.submit-button:hover {
+    background-color: #728ec0;
+}
+
+.submit-button:active {
+    background-color: #7b9ace;
+    box-shadow: 0 5px #666;
+    transform: translateY(8px); 
+}
+
+.submit-input {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    background-color: white;
+    border-radius: 15px;
+    padding-bottom: 25px;
+    padding-top: 0;
+}
+

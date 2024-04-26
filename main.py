@@ -57,7 +57,7 @@ def logout ():
 
 @app.route ('/rules')
 def rules ():
-     return render_template ('home.html')
+     return render_template ('rules.html')
 
 @app.route ('/game', methods = ['POST', 'GET'])
 def game ():
