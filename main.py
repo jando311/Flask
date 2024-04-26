@@ -24,7 +24,7 @@ def get_index (variable, unknown_word, random_word):
 random_word = get_word()
 
 
-@app.route('/')
+@app.route('/home')
 def home ():
     return render_template('home.html')
 
@@ -55,6 +55,9 @@ def logout ():
     session.pop('user', None)
     return redirect (url_for ('login'))
 
+@app.route ('/rules')
+def rules ():
+     return render_template ('home.html')
 
 @app.route ('/game', methods = ['POST', 'GET'])
 def game ():
