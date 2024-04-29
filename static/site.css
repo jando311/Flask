@@ -1,3 +1,5 @@
+/*---NAVBAR CONTENT---*/
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -42,6 +44,9 @@
     line-height: 80px;
 }
 
+/*---BACKGROUND CONTENT---*/
+
+
 body {
     background: url("https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/background.jpg");
     background-size: 80%;
@@ -54,6 +59,9 @@ body {
     min-height: 100vh;
     margin: 0;
 }
+
+/*---HOME PAGE CONTENT---*/
+
 
 .menu {
     background-color: white;
@@ -151,6 +159,10 @@ li a:hover {
     transform: translateY(8px); 
 }
 
+
+/*---RULE PAGE CONTENT---*/
+
+
 .rule-sheet {
     color: black;
     background-color: white;
@@ -166,11 +178,15 @@ li a:hover {
 
 .headline {
     color: black;
-    font-size: 25px;
+    font-size: 18px;
     padding-bottom: 30px;
     text-decoration: underline;
 
 }
+
+
+/*---LOGIN PAGE CONTENT---*/
+
 
 .login-form {
     background-color: white;
@@ -226,7 +242,6 @@ li a:hover {
     padding: 15px;
 }
 
-
 .login-msg {
     position: fixed;
     top: 80px;
@@ -238,37 +253,43 @@ li a:hover {
     font-weight: bolder;
 }
 
-.game-square {
-    display: fixed;
+
+/*---GAME PAGE CONTENT---*/
+
+.game-display {
     background-color: white;
-    height: 525px;
-    width: 350px;
-    margin-top: 20px;
-    margin-left: 15px;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 30px;
 }
 
-.unknown_word-square {
-    position: fixed;
-    background-color: purple;
-    height: 200px;
-    width: 450px;
-    margin-top: 129px;
-    margin-right: 15px;
-    margin-left: 325px;
+.game-display h1 {
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: underline;
+    text-align: center;
+    padding-bottom: 15px;
 }
 
-.player-info {
-    position: fixed;
-    background-color: orange;
-    height: 200px;
-    width: 450px;
-    margin-top: 379px;
-    margin-right: 15px;
-    margin-left: 325px;
+.game-display h3 {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    padding-bottom: 15px;
+
 }
+
+.guess-input {
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    padding-bottom: 15px;
+
+}
+
 
 .check-button {
-    font-size: 18px;
+    font-size: 15px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     cursor: pointer;
@@ -280,7 +301,7 @@ li a:hover {
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-    padding: 12px 22px;
+    padding: 10px 20px;
 }
 
 .check-button:hover {
@@ -298,8 +319,108 @@ li a:hover {
     font-weight: bolder;
     background-color: white;
     border-radius: 15px;
-    padding: 15px;
+    padding: 8px 4px;
 }
+
+.hangman {
+    border: 3px solid black;
+    margin-left: 50%;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px; 
+}
+
+.previous-guess {
+    border: 3px solid black;
+    margin-right: 50%;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.endgame-button {
+    position: fixed;
+    bottom: 100px;
+    right: 55px;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    padding: 12px 22px;
+}
+
+.engame-button:hover {
+    background-color: #d30000;
+}
+
+.endgame-button:active {
+    background-color: #be0000;
+    box-shadow: 0 5px #666;
+    transform: translateY(8px); 
+}
+
+.joker-one {
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #1900ff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    padding: 8px 18px;
+}
+
+.joker-one:hover {
+    background-color: #2300af;
+}
+
+.joker-one:active {
+    background-color: #21028e;
+    box-shadow: 0 5px #666;
+    transform: translateY(8px); 
+}
+
+.joker-two {
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #00ff2f;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    padding: 8px 18px;
+}
+
+.joker-two:hover {
+    background-color: #43d200;
+}
+
+.joker-two:active {
+    background-color: #1fa102;
+    box-shadow: 0 5px #666;
+    transform: translateY(8px); 
+}
+/*---FOOTER PAGE CONTENT---*/
+
+
 footer {
     position: fixed;
     bottom: 0;

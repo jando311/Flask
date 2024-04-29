@@ -10,6 +10,9 @@
     {% endif %}
 {% endwith %}
 
+{% if tries==6 %}
+    <p class="hangman">H</p>
+{% endif %}
 
 <p>Guess the word: {{unknown_word}}</p>
 
