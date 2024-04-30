@@ -7,19 +7,25 @@ import random
 
 app = Flask (__name__)
 app.secret_key = 'which'
+
 def get_word ():
     conn = sqlite3.connect ('small_dictionary.db')
     cursor = conn.cursor ()
     cursor.execute ('SELECT * FROM my_table ORDER BY RANDOM() LIMIT 1')
     random_row = cursor.fetchone()
     conn.close 
-    return random_row
+    if random_row: 
+        random_word = random_row[0].upper()
+        return random_word, random_row[1]
+    else: 
+        return None, None
+
 
 def get_index (variable, unknown_word, random_word):
-        positions = [i for i, letter in enumerate (random_word) if letter == variable]
-        for position in positions:
-            unknown_word[position] = variable
-        return unknown_word
+    positions = [i for i, letter in enumerate (random_word) if letter == variable]
+    for position in positions:
+        unknown_word[position] = variable
+    return unknown_word
 
 random_word = get_word()
 
@@ -67,48 +73,49 @@ def game ():
         session ['random_definition'] = get_word()[1]
 
     def hangman_game_func (guess, word, random_definition):
+        guess = guess.upper()
         unknown_word = session ['unknown_word']
         tries = session ['tries']
-        guessed_letters = session ['guessed_letters']    
+        guessed_letters = session ['guessed_letters']
         
         if guess in guessed_letters and len(guess) == 1:
-                    flash ("You already guessed that, try again!") 
-                    return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
+            flash ("You already guessed that, try again!") 
+            return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
                     
 
         if guess in word and len(guess)==1 and guess.isalpha:
-                    guessed_letters.append(guess) 
-                    session ['unknown_word'] = get_index (guess, unknown_word, session['random_word'])
-                    if unknown_word == list (word):
-                         flash ('You won, press the "New Game" Button if you want to play again!')
-                    elif tries == 0:
-                         flash ('You loose, press the "New Game" Button if you want to play again!')
-                    else:
-                        flash ("Congratulations, you found a Letter!")
-                    return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
+            guessed_letters.append(guess) 
+            session ['unknown_word'] = get_index (guess, unknown_word, session['random_word'])
+            if unknown_word == list (word):
+                flash ('You won, press the "New Game" Button if you want to play again!')
+            elif tries == 0:
+                flash ('You loose, press the "New Game" Button if you want to play again!')
+            else:
+                flash ("Congratulations, you found a Letter!")
+                return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
 
                      
                           
         if guess in session ['guessed_letters']:
-                    flash ("You already guessed that, try again!") 
-                    return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'])
+            flash ("You already guessed that, try again!") 
+            return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'])
 
                      
 
         if guess != word and len(guess)==1 and guess.isalpha:
-                    session ['tries'] -= 1
-                    session ['value'] += 1
-                    guessed_letters.append(guess)
-                    flash ("No, not in the word!")
-                    return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries = session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'])
+            session ['tries'] -= 1
+            session ['value'] += 1
+            guessed_letters.append(guess)
+            flash ("No, not in the word!")
+            return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries = session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'])
 
                       
 
         if guess != word:
-                    tries -= 1
-                    session ['value'] += 1
-                    print ("No, not the word!")
-                    return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries = session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'])
+            tries -= 1
+            session ['value'] += 1
+            print ("No, not the word!")
+            return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries = session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'])
 
 
     if 'unknown_word' not in session:
