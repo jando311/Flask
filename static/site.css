@@ -260,7 +260,8 @@ li a:hover {
     background-color: white;
     margin-right: 30px;
     margin-left: 30px;
-    margin-top: 30px;
+    margin-top: 100px;
+    margin-bottom: 500px;
 }
 
 .game-display h1 {
@@ -275,8 +276,15 @@ li a:hover {
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
-    padding-bottom: 15px;
+}
 
+.hangman {
+    border: 1px black solid;
+    width: 30%;
+    display: block;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .guess-input {
@@ -314,27 +322,22 @@ li a:hover {
     transform: translateY(8px); 
 }
 
-.check-input {
+.check-input {  
+    font-size: 15px;
     font-family: 'Courier New', Courier, monospace;
-    font-weight: bolder;
-    background-color: white;
+    font-style: italic;
+    color: grey;
+    text-align: center;
     border-radius: 15px;
-    padding: 8px 4px;
-}
-
-.hangman {
-    border: 3px solid black;
-    margin-left: 50%;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    padding-bottom: 15px; 
+    border: 2px black solid;
+    padding: 10px 6px;
 }
 
 .previous-guess {
-    border: 3px solid black;
+    font-size: 9px;
+    margin-top: 20%;
     margin-right: 50%;
     margin-left: 15px;
-    margin-bottom: 15px;
     padding-bottom: 15px;
 }
 
@@ -418,6 +421,9 @@ li a:hover {
     box-shadow: 0 5px #666;
     transform: translateY(8px); 
 }
+
+
+
 /*---FOOTER PAGE CONTENT---*/
 
 

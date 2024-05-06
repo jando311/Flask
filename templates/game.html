@@ -26,25 +26,59 @@
 
 
     <div class="game-display">
-      <h1>SECRET WORD:</h1>
+      
+      <div class="game-progress">
+        {% if tries == 7 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/spaceforfigure.png?t=2024-05-05T05%3A05%3A24.506Z" alt="All tries left">
+        {% endif %}
+
+        {% if tries == 6 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/H.png" alt="All tries left">
+        {% endif %}
+  
+        {% if tries == 5 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/A.png" alt="All tries left">
+        {% endif %}
+  
+        {% if tries == 4 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/N.png" alt="All tries left">
+        {% endif %}
+  
+        {% if tries == 3 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/G.png" alt="All tries left">
+        {% endif %}
+  
+        {% if tries == 2 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/M.png" alt="All tries left">
+        {% endif %}
+  
+        {% if tries == 1 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/A2.png" alt="All tries left">
+        {% endif %}
+  
+        {% if tries == 0 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/N.png" alt="All tries left">
+        {% endif %}
+      </div>
+
       <h3>{{unknown_word}}</h3>
 
       <div class="guess-input">
-        <p>Please guess a Letter or Word!</p>
         <form action="#" method = 'post'>
+          <p>Please type in a letter or word:</p>
           <p><input class="check-input" type = 'text' name = 'guess' /></p>
           <p><input class="check-button" type = 'submit' value = 'CHECK' /></p>
         </form>
       </div>
 
-    <div class="previous-guess">
-      <u1>Your previous guessed Letters:</u1>
-        <u1>
-          {% for guess in guessed_letters %}
-            <liv>{{guess}}</liv>
-          {% endfor %}
-        </u1>
-    </div>
+      <div class="previous-guess">
+        <u1>Previously guessed:</u1>
+          <u1>
+            {% for guess in guessed_letters %}
+              <liv>{{guess}}</liv>
+            {% endfor %}
+          </u1>
+      </div>
 
     {% if value == 2 and hint_used == False %}
         <form action="{{url_for('get_hint')}}" method = "post">
@@ -57,37 +91,6 @@
           <p><input class="joker-two" type="submit" value = 'Second Joker'></p>
         </form>
     {% endif %}
-
-    <div class="hangman">
-      <p>HANGMAN</p>
-      {% if tries==6 %}
-        <p>H</p>
-      {% endif %}
-
-      {% if tries==5 %}
-        <p>HA</p>
-      {% endif %}
-
-      {% if tries==4 %}
-        <p>HAN</p>
-      {% endif %}
-
-      {% if tries==3 %}
-        <p>HANG</p>
-      {% endif %}
-
-      {% if tries==2 %}
-        <p>HANGM</p>
-      {% endif %}
-
-      {% if tries==1 %}
-        <p>HANGMA</p>
-      {% endif %}
-
-      {% if tries==0 %}
-        <p>HANGMAN</p>
-      {% endif %}
-    </div>
 
     <div class="new-game">
       <form action="{{url_for('endgame')}}" method = "post">

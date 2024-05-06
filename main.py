@@ -87,6 +87,7 @@ def game ():
         unknown_word = session ['unknown_word']
         tries = session ['tries']
         guessed_letters = session ['guessed_letters']
+        print (tries)
         
         if guess in guessed_letters and len(guess) == 1:
             flash ("You already guessed that, try again!") 
@@ -195,7 +196,7 @@ def endgame ():
         random_row = get_word()
         session ['unknown_word'] = list ( len (random_row[0])* '_')
         session ['guessed_letters'] = []   
-        session ['tries'] = 6 
+        session ['tries'] = 7 
         session ['variable'] = 'variable' 
         session ['result'] = 'result'
         session ['random_word'] = random_row[0] 
