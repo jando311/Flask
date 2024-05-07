@@ -88,7 +88,7 @@ def game ():
         tries = session ['tries']
         guessed_letters = session ['guessed_letters']
         print (tries)
-        
+        print (word)
         if guess in guessed_letters and len(guess) == 1:
             flash ("You already guessed that, try again!") 
             return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result']) 
