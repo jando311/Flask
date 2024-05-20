@@ -71,12 +71,16 @@
           <p><input class="button-input" type = 'submit' value = 'CHECK' /></p>
         </form>
         <div class="hint-class">
-          <form action="{{url_for('get_hint')}}" method = "post">
-            <p><input class="joker-one" type="submit" value = 'First Joker'></p>
-          </form>
-          <form action="{{url_for('get_hint2')}}" method = "post">
-            <p><input class="joker-two" type="submit" value = 'Second Joker'></p>
-          </form>
+          {% if value == 2 and hint_used == False %}
+            <form action="{{url_for('get_hint')}}" method = "post">
+              <p><input class="joker-one" type="submit" value = 'First Joker'></p>
+            </form>
+          {% endif %}
+          {% if value == 3 and hint_2_used == False %}
+            <form action="{{url_for('get_hint2')}}" method = "post">
+              <p><input class="joker-two" type="submit" value = 'Second Joker'></p>
+            </form>
+          {% endif %}
         </div>
       </div> 
     </div>
