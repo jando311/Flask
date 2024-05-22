@@ -7,15 +7,13 @@
   <title>{% block title %}Joshua's Hangman{% endblock %} </title>
 </head>
 <body>
-    <div class="navbar">
-      <img class='logo' src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/new_logo.png" alt="hangman logo">
-      <ul class="navbar-links">
-        <li><a href="/home">HOME</a></li>
-        <li><a href="/login">LOGIN</a></li>
-        <li><a href="/game">GAME</a></li>
-        <li><a href="/rules">RULES</a></li>
-      </ul>
-    </div>
+    <ul class="navbar">
+      <img class="header-logo" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/new%20hangman%20logo%20.png" alt="hangman with crossed eyes.">
+      <li cass="navbar-link"><a class="navbar-item" href="/home">HOME</a></li>
+      <li cass="navbar-link"><a class="navbar-item"  href="/login">LOGIN</a></li>
+      <li cass="navbar-link"><a class="navbar-item"  href="/game">GAME</a></li>
+      <li cass="navbar-link"><a class="navbar-item"  href="/rules">RULES</a></li>
+    </ul>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for msg in messages %}
@@ -26,10 +24,6 @@
 
 
     <div class="word_figure">
-      <div class="unknown-word">
-        <p class="print-word">{{unknown_word}}</p>
-      </div>
-      <div class="game-progress">
         {% if tries == 6 %}
           <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/H.png" alt="6 tries left">
   
@@ -54,39 +48,43 @@
         {% else %}
           <img class="placeholder" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/PLACEHOLDER.png" alt="Hangman Logo">
         {% endif %}
-      </div>
-    </div>
 
-    <div class="input_hints">
       <div class="previous-guess">
+        <p>Cross off previous guesses.</p>
         <u1>
           {% for guess in guessed_letters %}
             <liv>{{guess}},</liv>
           {% endfor %}
         </u1>
       </div>
+
       <div class="user-input">
         <form class="user-form" action="#" method = 'post'>
           <p><input class="check-input" type = 'text' name = 'guess' placeholder='letter or word' /></p>
           <p><input class="button-input" type = 'submit' value = 'CHECK' /></p>
         </form>
+
         <div class="hint-class">
           {% if value == 2 and hint_used == False %}
             <form action="{{url_for('get_hint')}}" method = "post">
               <p><input class="joker-one" type="submit" value = 'First Joker'></p>
             </form>
-          {% endif %}
-          {% if value == 3 and hint_2_used == False %}
+         
+          {% elif value == 3 and hint_2_used == False %}
             <form action="{{url_for('get_hint2')}}" method = "post">
               <p><input class="joker-two" type="submit" value = 'Second Joker'></p>
             </form>
+          
+          {% else %}
+            
           {% endif %}
         </div>
       </div> 
+      
     </div>
-
-
- 
+    <div class="unknown-word">
+      <p class="print-word">{{unknown_word}}</p>
+    </div>
 
     <div class="new-game">
       <form action="{{url_for('endgame')}}" method = "post">
