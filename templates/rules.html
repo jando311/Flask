@@ -7,6 +7,7 @@
   <title>{% block title %}Joshua's Hangman{% endblock %} </title>
 </head>
 <body>
+  <header>
     <ul class="navbar">
       <img class="header-logo" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/new%20hangman%20logo%20.png" alt="hangman with crossed eyes.">
       <li cass="navbar-link"><a class="navbar-item" href="/home">HOME</a></li>
@@ -14,6 +15,7 @@
       <li cass="navbar-link"><a class="navbar-item"  href="/game">GAME</a></li>
       <li cass="navbar-link"><a class="navbar-item"  href="/rules">RULES</a></li>
     </ul>
+  </header>
     <div class="login-msg">
       {% with messages = get_flashed_messages() %}
           {% if messages %}
@@ -25,11 +27,12 @@
     </div>
     <div class="rule-sheet">
         <h1 class="headline">HANGMAN GAME - RULES</h1>
-        <p>The object of hangman is to guess the secret word before the stick figure is hung.</p>
-        <br>
-        <p>Players select letters to narrow the word down.</p>
-        <br>
-        <p>The Gameplay continues until the player guesses the word or they run out of guesses.</p>
+        <p>Great to see you here Player! Welcome to HANGMAN GAME.</p>
+        <p>The object of this game is to guess the unknown word before your stick figure is hung.</p>
+        <p>You can only guess one single letter at a time and you get a total of 6 tries.</p>
+        <p>After a couple wrong guesses you get the opportunity to select your first joker which will grant you the definition of the unknown word.</p>
+        <p>After another wrong guess you unlock the second Joker which will uncover one random letter of the unknown word.</p>
+        <p>Good luck and have fun testing your vocabulary!</p>
     </div>
 </body>
 <footer>

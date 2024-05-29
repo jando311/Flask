@@ -1,10 +1,27 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  min-height: 50px;
+  background: lightcyan;
+}
+
+footer {
+  min-height: 50px;
+  background: PapayaWhip;
+}
+
 /*---NAVBAR CONTENT---*/
 
 .navbar {
     list-style-type: none;
     margin: 0;
     overflow: hidden;
-    background-color: #1c1924;
+    background-color: #d6ebfe;
 }
   
 .navbar-link {
@@ -14,14 +31,43 @@
   
 .navbar-item {
     display: block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 20px;
     text-decoration: none;
 }
 
 .navbar-item:hover {
-    background-color: #535353;
+    background-color: #96ceff;
+}
+
+ul {
+    list-style-type: none;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+  }
+  
+
+li {
+    float: left;
+}
+
+
+li a {
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+  
+li a:hover {
+    background-color: #949494;
 }
 
 .header-logo {
@@ -40,7 +86,7 @@ body {
     font-weight: bold;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100%;
     margin: 0;
     overflow-x: hidden;
 }
@@ -48,49 +94,30 @@ body {
 /*---HOME PAGE CONTENT---*/
 
 
-.menu {
-    background-color: rgb(247, 247, 247);
-    margin: 90px 15px;
-    border-radius: 15px;
-    border: 10px solid rgb(0, 0, 0);
+.menu_play {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    background-color: #162996;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
 }
 
-.menu p {
-    margin: 110px 50px;
+.go_play {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-ul {
-    list-style-type: none;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #ffffff;
-  }
-  
-li {
-    float: left;
-}
-  
-li a {
-    display: block;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-  
-li a:hover {
-    background-color: #949494;
+.go_play h3 {
+    margin-top: 90px;
+    margin-left: 35px;
 }
 
-.button {
-    position: absolute;
-    top: 36.6%;
-    right: 8%;
-    padding: 15px 25px;
+.button_play {
+    margin-left: 47px;
+    padding: 10px 20px;
     font-size: 18px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
@@ -100,26 +127,52 @@ li a:hover {
     outline: none;
     color: #ffffff;
     background-color: #98beff;
-    border: black;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    border: 2px solid white;
 }
 
-.button:hover {
+.button_play:hover {
     background-color: #6d87b5;
 }
 
-.button:active {
+.button_play:active {
     background-color:#5d5d5d;
     box-shadow: 0 5px #666;
     transform: translateY(8px); 
 }
 
-.button1 {
-    position: absolute;
-    top: 54%;
-    right: 8%;
-    padding: 15px 25px;
+.image_play {
+    width: 300px;
+    height: 300px;
+}
+
+
+.menu_rules {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #162996;
+    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+
+}
+
+.learn_rules {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.learn_rules h3 {
+    margin-top: 90px;
+    margin-right: 120px;
+}
+
+.button_rules {
+    margin-left: 50px;
+    padding: 10px 20px;
     font-size: 18px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
@@ -132,18 +185,24 @@ li a:hover {
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    border: 2px solid white;
 }
 
-.button1:hover {
+.button_rules:hover {
     background-color: #8e3e3e;
 }
 
-.button1:active {
+.button_rules:active {
     background-color: #8e3e3e;
     box-shadow: 0 5px #666;
     transform: translateY(8px); 
 }
 
+.image_rules {
+    width: 300px;
+    height: 300px;
+    border: 2px solid purple;
+}
 
 /*---RULE PAGE CONTENT---*/
 
@@ -157,8 +216,8 @@ li a:hover {
     line-height: 25px;
     font-size: small;
     font-weight: bolder;
-    border-radius: 15px;
-    border: 10px solid rgb(0, 0, 0);
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .headline {
@@ -242,12 +301,12 @@ li a:hover {
 /*---GAME PAGE CONTENT---*/
 
 .word_figure {
-    margin-top: 70px;
-    margin-bottom: 70px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     padding: 50px;
     display: flex;
     justify-content: space-evenly;
-    background-color: rgb(247, 247, 247);
+    background-color: #162996;
 }
 
 .print-word {
@@ -255,10 +314,12 @@ li a:hover {
     justify-content: center;
     padding-top: 25px;
     padding-bottom:25px;
-    color: black;
-    background-color: rgb(247, 247, 247);
+    color: rgb(255, 255, 255);
+    background-color: #112075;
     border: 2px solid black;
     font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .placeholder {
@@ -281,8 +342,8 @@ li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(247, 247, 247);
-    margin-top: 60px;
+    background-color: #162996;
+    margin-top: 100px;
 
 }
 
@@ -365,8 +426,9 @@ li a:hover {
 
 .new-game {
     display: flex;
-    justify-content: flex-end;
-    margin-right: 50px;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .endgame-button {
@@ -464,14 +526,17 @@ li a:hover {
 
 
 
-.footer {
+footer {
     width: 100%;
-    position: fixed;
-    bottom: 0px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-color: #1c1924;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    background-color: #00213e;
     text-align: center;
     color: white;
+    margin-bottom: 0px;
   }
 
+footer p {
+    margin-top: 100px;
+}

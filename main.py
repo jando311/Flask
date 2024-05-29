@@ -91,8 +91,7 @@ def game ():
         print (word)
         if guess in guessed_letters and len(guess) == 1:
             flash ("You already guessed that, try again!") 
-            return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result']) 
-
+            return render_template ('game.html')
         if guess in word and len(guess)==1 and guess.isalpha:
             guessed_letters.append(guess) 
             session ['unknown_word'] = get_index (guess, unknown_word, session['random_word'])
@@ -102,7 +101,7 @@ def game ():
                 flash ('You loose, press the "New Game" Button if you want to play again!')
             else:
                 flash ("Congratulations, you found a Letter!")
-                return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'])
+                return render_template ('game.html')
 
         if len(guess) == len(word) and guess.isalpha():
             if guess == word:
@@ -111,24 +110,24 @@ def game ():
                 tries -= 1
                 session ['value'] += 1
                 print ("No, not the word!")
-                return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries = session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'])
+                return render_template ('game.html')
                         
         if guess in session ['guessed_letters']:
             flash ("You already guessed that, try again!") 
-            return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'])
+            return render_template ('game.html')
               
         if guess != word and len(guess)==1 and guess.isalpha:
             session ['tries'] -= 1
             session ['value'] += 1
             guessed_letters.append(guess)
             flash ("No, not in the word!")
-            return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries = session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'])
+            return render_template ('game.html')
 
         if guess != word:
             tries -= 1
             session ['value'] += 1
             print ("No, not the word!")
-            return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries = session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'])
+            return render_template ('game.html')
 
 
     if 'unknown_word' not in session:
@@ -162,17 +161,15 @@ def game ():
     if request.method =='POST':
         guess = request.form ['guess']
         hangman_game_func (guess,  session ['random_word'], session ['random_definition'])
-        return render_template ('game.html', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'], hint_used = session ['hint_used'], hint_2_used = session ['hint_2_used'])
-      
+        return render_template ('game.html')
     return render_template ('game.html', unknown_word = session ['unknown_word'])
 
 
 @app.route ('/hint1', methods = ['POST', 'GET'])
 def get_hint ():
-     if request.method == 'POST':
+    if request.method == 'POST':
         flash (session ['random_definition'])
-        return redirect (url_for ('game'))
-     
+    return redirect (url_for ('game'))
 
 @app.route ('/hint2', methods = ['POST', 'GET'])
 def get_hint2 ():
@@ -186,8 +183,8 @@ def get_hint2 ():
         session ['unknown_word'] = get_index (random_letter, unknown_word, word)
         guessed_letters.append(random_letter)
         session ['guessed_letters'] = guessed_letters
-        
-    return redirect (url_for ('game'))
+    return redirect (url_for ('game', guessed_letters = session ['guessed_letters'], tries=session ['tries'], unknown_word = session ['unknown_word'], result = session ['result'], value = session ['value'], hint_used = session ['hint_used'], hint_2_used = session ['hint_2_used']))
+   
 
 
 @app.route ('/endgame', methods = ['POST', 'GET'])

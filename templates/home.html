@@ -6,14 +6,15 @@
   <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='site.css')}}"/>
   <title>{% block title %}Joshua's Hangman{% endblock %} </title>
 </head>
-<body>
-    <ul class="navbar">
-      <img class="header-logo" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/new%20hangman%20logo%20.png" alt="hangman with crossed eyes.">
-      <li cass="navbar-link"><a class="navbar-item" href="/home">HOME</a></li>
-      <li cass="navbar-link"><a class="navbar-item"  href="/login">LOGIN</a></li>
-      <li cass="navbar-link"><a class="navbar-item"  href="/game">GAME</a></li>
-      <li cass="navbar-link"><a class="navbar-item"  href="/rules">RULES</a></li>
-    </ul>
+<header>
+  <ul class="navbar">
+    <img class="header-logo" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/new%20hangman%20logo%20.png" alt="hangman with crossed eyes.">
+    <li cass="navbar-link"><a class="navbar-item" href="/home">HOME</a></li>
+    <li cass="navbar-link"><a class="navbar-item"  href="/login">LOGIN</a></li>
+    <li cass="navbar-link"><a class="navbar-item"  href="/game">GAME</a></li>
+    <li cass="navbar-link"><a class="navbar-item"  href="/rules">RULES</a></li>
+  </ul>
+</header>
   <div class="login-msg">
     {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -23,15 +24,31 @@
         {% endif %}
     {% endwith %}
   </div>
-  <div class="menu">
-    <p>Familiar with the Rules and ready to play? Press PLAY.</p>
-    <p><button type="button" class="button">PLAY</button></p>
-    <p>New to Hangman and not sure how to play? Press RULES.</p>
-    <p><button type="button" class="button1">RULES</button></p>
+
+  <div class="menu_play">
+    <div class="go_play">
+      <h3>Ready to play?</h3>
+      <p><button type="button" class="button_play">PLAY</button></p>
+    </div>
+    <div class="content_play">
+      <img class="image_play" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/image_play.png" alt="hangman figure">
+    </div>
+  </div>
+
+  <div class="menu_rules">
+    <div class="content_rules">
+      <img class="image_rules" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/learn_rules.png" alt="three question marks">
+    </div>
+    <div class="learn_rules">
+      <h3>Want to learn the rules?</h3>
+      <p><button type="button" class="button_rules">RULES</button></p>
+    </div>
   </div>
 </body>
+<br>
+<br>
+<br>
 <footer>
-  <div class="footer">
     <p>@madebyJANDO</p>
   </div>
 </footer>
