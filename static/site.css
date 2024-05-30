@@ -7,12 +7,10 @@ body {
 
 header {
   min-height: 50px;
-  background: lightcyan;
 }
 
 footer {
   min-height: 50px;
-  background: PapayaWhip;
 }
 
 /*---NAVBAR CONTENT---*/
@@ -21,7 +19,7 @@ footer {
     list-style-type: none;
     margin: 0;
     overflow: hidden;
-    background-color: #d6ebfe;
+    background-color: #EEEEEE;
 }
   
 .navbar-link {
@@ -38,7 +36,7 @@ footer {
 }
 
 .navbar-item:hover {
-    background-color: #96ceff;
+    background-color: #70767e;
 }
 
 ul {
@@ -98,7 +96,7 @@ body {
     display: flex;
     justify-content: space-evenly;
     margin-top: 50px;
-    background-color: #162996;
+    background-color: #373A40;
     padding-top: 50px;
     padding-bottom: 50px;
     color: white;
@@ -151,7 +149,7 @@ body {
 .menu_rules {
     display: flex;
     justify-content: space-evenly;
-    background-color: #162996;
+    background-color: #373A40;
     margin-top: 50px;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -208,9 +206,8 @@ body {
 
 
 .rule-sheet {
-    color: black;
-    background-color: white;
-    margin: 110px 15px;
+    color: white;
+    background-color: #373A40;
     padding: 30px;
     text-align: center;
     line-height: 25px;
@@ -221,11 +218,9 @@ body {
 }
 
 .headline {
-    color: black;
+    color: white;
     font-size: 18px;
     padding-bottom: 30px;
-    text-decoration: underline;
-
 }
 
 
@@ -233,18 +228,26 @@ body {
 
 
 .login-form {
-    background-color: white;
-    margin: 110px 15px;
-    border-radius: 15px;
-    border: 10px solid rgb(0, 0, 0);
+    background-color: #373A40;
+    margin-top: 50px;
+    margin-bottom: 120px;
+    color: white;
+}
+
+.login-form h1 {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    margin-bottom: 0;
 }
 
 .login-input {
-    color: black;
+    color: white;
     text-align: center;
     margin-right: auto;
     margin-left: auto;
-    padding: 25px
+    padding: 25px;
+    margin-top: 0;
 }
 
 .login-input p {
@@ -301,12 +304,12 @@ body {
 /*---GAME PAGE CONTENT---*/
 
 .word_figure {
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
     padding: 50px;
     display: flex;
     justify-content: space-evenly;
-    background-color: #162996;
+    background-color: #373A40;
 }
 
 .print-word {
@@ -315,7 +318,7 @@ body {
     padding-top: 25px;
     padding-bottom:25px;
     color: rgb(255, 255, 255);
-    background-color: #112075;
+    background-color: #373A40;
     border: 2px solid black;
     font-size: 30px;
     margin-top: 0;
@@ -342,7 +345,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #162996;
+    background-color: #373A40;
     margin-top: 100px;
 
 }
@@ -427,8 +430,8 @@ body {
 .new-game {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .endgame-button {
@@ -531,7 +534,7 @@ footer {
     height: 200px;
     display: flex;
     justify-content: center;
-    background-color: #00213e;
+    background-color: #DC5F00;
     text-align: center;
     color: white;
     margin-bottom: 0px;

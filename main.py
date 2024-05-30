@@ -1,5 +1,7 @@
 from flask import Flask, redirect, url_for, render_template, request, session, flash 
 from datetime import timedelta 
+import requests
+import configparser
 import pandas as pd 
 import sqlite3
 import csv 
@@ -89,46 +91,52 @@ def game ():
         guessed_letters = session ['guessed_letters']
         print (tries)
         print (word)
-        if guess in guessed_letters and len(guess) == 1:
-            flash ("You already guessed that, try again!") 
-            return render_template ('game.html')
-        if guess in word and len(guess)==1 and guess.isalpha:
-            guessed_letters.append(guess) 
-            session ['unknown_word'] = get_index (guess, unknown_word, session['random_word'])
-            if unknown_word == list (word):
-                flash ('You won, press the "New Game" Button if you want to play again!')
-            elif tries == 0:
-                flash ('You loose, press the "New Game" Button if you want to play again!')
-            else:
-                flash ("Congratulations, you found a Letter!")
+
+        if session['tries'] > 0: 
+            if guess in guessed_letters and len(guess) == 1:
+                flash ("You already guessed that, try again!") 
+                return render_template ('game.html')
+            
+            if guess in word and len(guess)==1 and guess.isalpha:
+                guessed_letters.append(guess) 
+                session ['unknown_word'] = get_index (guess, unknown_word, session['random_word'])
+                if unknown_word == list (word):
+                    flash ('You won, press the "New Game" Button if you want to play again!')
+                elif tries == 0:
+                    flash ('You loose, press the "New Game" Button if you want to play again!')
+                else:
+                    flash ("Congratulations, you found a Letter!")
+                    return render_template ('game.html')
+
+            if len(guess) == len(word) and guess.isalpha():
+                if guess == word:
+                    flash ('You got it! Press "NEW GAME" if you want to play again!')
+                else:
+                    tries -= 1
+                    session ['value'] += 1
+                    print ("No, not the word!")
+                    return render_template ('game.html')
+                            
+            if guess in session ['guessed_letters']:
+                flash ("You already guessed that, try again!") 
+                return render_template ('game.html')
+                
+            if guess != word and len(guess)==1 and guess.isalpha:
+                session ['tries'] -= 1
+                session ['value'] += 1
+                guessed_letters.append(guess)
+                flash ("No, not in the word!")
                 return render_template ('game.html')
 
-        if len(guess) == len(word) and guess.isalpha():
-            if guess == word:
-                flash ('You got it! Press "NEW GAME" if you want to play again!')
-            else:
+            if guess != word:
                 tries -= 1
                 session ['value'] += 1
                 print ("No, not the word!")
                 return render_template ('game.html')
-                        
-        if guess in session ['guessed_letters']:
-            flash ("You already guessed that, try again!") 
-            return render_template ('game.html')
-              
-        if guess != word and len(guess)==1 and guess.isalpha:
-            session ['tries'] -= 1
-            session ['value'] += 1
-            guessed_letters.append(guess)
-            flash ("No, not in the word!")
-            return render_template ('game.html')
+        else: 
+            flash ('You are out of tries, press NEW GAME for another round!')
 
-        if guess != word:
-            tries -= 1
-            session ['value'] += 1
-            print ("No, not the word!")
-            return render_template ('game.html')
-
+    print (session['value'])
 
     if 'unknown_word' not in session:
         session ['unknown_word'] = list ( len (session ['random_word'])* '_')
