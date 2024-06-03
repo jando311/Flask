@@ -3,6 +3,7 @@ from datetime import timedelta
 import requests
 import configparser
 import pandas as pd 
+import numpy
 import sqlite3
 import csv 
 import random 
