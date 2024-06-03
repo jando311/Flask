@@ -7,36 +7,38 @@
   <title>{% block title %}Joshua's Hangman{% endblock %} </title>
 </head>
 <body>
-  <header>
-    <ul class="navbar">
-      <img class="header-logo" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/new%20hangman%20logo%20.png" alt="hangman with crossed eyes.">
-      <li cass="navbar-link"><a class="navbar-item" href="/home">HOME</a></li>
-      <li cass="navbar-link"><a class="navbar-item"  href="/login">LOGIN</a></li>
-      <li cass="navbar-link"><a class="navbar-item"  href="/game">GAME</a></li>
-      <li cass="navbar-link"><a class="navbar-item"  href="/rules">RULES</a></li>
-    </ul>
-  </header>
-  <div class="login-msg">
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for msg in messages %}
-                    <p>{{msg}}</p>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-  </div>
-  <div class="login-form">
-        <form class='login-input' action = '#' method = 'post'>
-            <h1 class="headline">Enter Your Name:</h1>
-            <p><input class="submit-input" type = 'text' name = 'user' /></p>
-            <p><input class="submit-button" type = 'submit' value = 'ENTER' /></p>
-        </form>
+  <div class="wrapper">
+    <header>
+      <ul class="navbar">
+        <img class="header-logo" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/new%20hangman%20logo%20.png" alt="hangman with crossed eyes.">
+        <li cass="navbar-link"><a class="navbar-item" href="/home">HOME</a></li>
+        <li cass="navbar-link"><a class="navbar-item"  href="/login">LOGIN</a></li>
+        <li cass="navbar-link"><a class="navbar-item"  href="/game">GAME</a></li>
+        <li cass="navbar-link"><a class="navbar-item"  href="/rules">RULES</a></li>
+      </ul>
+    </header>
+    <div class="login-msg">
+          {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                  {% for msg in messages %}
+                      <p>{{msg}}</p>
+                  {% endfor %}
+              {% endif %}
+          {% endwith %}
+    </div>
+    <div class="login-form">
+          <form class='login-input' action = '#' method = 'post'>
+              <h1 class="headline">Enter Your Name:</h1>
+              <p><input class="submit-input" type = 'text' name = 'user' /></p>
+              <p><input class="submit-button" type = 'submit' value = 'ENTER' /></p>
+          </form>
+    </div>
+    <footer>
+      <div class="footer">
+        <p>@madebyJANDO</p>
+      </div>
+    </footer>
   </div>
 </body>
-<footer>
-    <div class="footer">
-      <p>@madebyJANDO</p>
-    </div>
-  </footer>
 </html>
 
