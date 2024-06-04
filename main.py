@@ -11,7 +11,6 @@ import random
 
 app = Flask (__name__)
 app.secret_key = 'which'
-app.debug = True 
 
 
 def get_word ():
