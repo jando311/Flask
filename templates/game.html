@@ -7,6 +7,7 @@
   <title>{% block title %}Joshua's Hangman{% endblock %} </title>
 </head>
 <body>
+  <div class="wrapper">
     <header>
       <ul class="navbar">
         <img class="header-logo" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/new%20hangman%20logo%20.png" alt="hangman with crossed eyes.">
@@ -92,12 +93,10 @@
       <form action="{{url_for('endgame')}}" method = "post">
         <p><input class='endgame-button' type="submit" value = 'NEW GAME'></p>
       </form>
-    </div>  
+    </div>
+    <footer>
+      <p>@madebyJANDO</p>
+    </div>
+    </footer>
+  </div>   
 </body>
-
-
-<footer>
-  <div class="footer">
-    <p>@madebyJANDO</p>
-  </div>
-</footer>

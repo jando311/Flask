@@ -13,9 +13,19 @@ footer {
   min-height: 50px;
 }
 
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
 /*---NAVBAR CONTENT---*/
 
 .navbar {
+    display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
     margin: 0;
     overflow: hidden;
@@ -23,6 +33,9 @@ footer {
 }
   
 .navbar-link {
+    flex: 1;
+    text-align: center;
+    margin: 5px 0;
     float: left;
 }
 
@@ -68,6 +81,8 @@ li a:hover {
 }
 
 .header-logo {
+    max-width: 100%;
+    height: auto;
     float: left;
     width: 58px;
 }
@@ -93,6 +108,7 @@ body {
 
 .menu_play {
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
     background-color: #373A40;
     padding-top: 50px;
@@ -198,6 +214,16 @@ body {
     height: 300px;
 }
 
+/* Mobile Styles */
+@media (max-width: 600px) {
+    .navbar-link {
+      flex: 1 100%;
+    }
+  
+    .menu_play, .menu_rules {
+      flex-direction: column;
+    }
+  }
 /*---RULE PAGE CONTENT---*/
 
 
@@ -213,18 +239,17 @@ body {
     margin-bottom: 80px;
 }
 
+.rule-sheet {
+    color: white;
+    font-size: 20px;
+}
 .headline {
     color: white;
-    font-size: 18px;
+    font-size: 30px;
     padding-bottom: 30px;
+    text-decoration: underline;
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh;
-}
 
 .content {
     flex: 1;
@@ -274,6 +299,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 9px #999;
     padding: 12px 22px;
+    border: 2px solid white;
 }
 
 .submit-button:hover {
@@ -395,7 +421,7 @@ body {
     color: rgb(255, 255, 255);
     text-align: center;
     border-radius: 15px;
-    border: 2px black solid;
+    border: 2px white solid;
     padding: 8px 16px;
 }
 
@@ -450,7 +476,7 @@ body {
     outline: none;
     color: #fff;
     background-color: #ff0000;
-    border: 2px black solid;
+    border: 2px white solid;
     border-radius: 15px;
     box-shadow: 0 9px #999;
     padding: 12px 22px;
@@ -548,3 +574,34 @@ footer {
 footer p {
     margin: 0; /* Reset the margin for the paragraph */
 }
+
+@media (max-width: 600px) {
+    .navbar-link {
+      flex: 1 100%;
+      text-align: center;
+    }
+  
+    .rule-sheet, .login-form, .word_figure, .previous-guess, .user-input, .unknown-word, .new-game {
+      padding: 0 10px;
+    }
+  
+    .header-logo, .hangman, .placeholder, .image_play, .image_rules {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .button_play, .button_rules, .submit-button, .button-input, .endgame-button {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  
+    .navbar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .menu_play, .menu_rules {
+      flex-direction: column;
+    }
+  }
