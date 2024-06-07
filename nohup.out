@@ -1,0 +1,12 @@
+[2024-06-07 07:43:25 +0000] [10964] [INFO] Starting gunicorn 22.0.0
+[2024-06-07 07:43:25 +0000] [10964] [ERROR] Connection in use: ('0.0.0.0', 8000)
+[2024-06-07 07:43:25 +0000] [10964] [ERROR] Retrying in 1 second.
+[2024-06-07 07:43:26 +0000] [10964] [ERROR] Connection in use: ('0.0.0.0', 8000)
+[2024-06-07 07:43:26 +0000] [10964] [ERROR] Retrying in 1 second.
+[2024-06-07 07:43:27 +0000] [10964] [ERROR] Connection in use: ('0.0.0.0', 8000)
+[2024-06-07 07:43:27 +0000] [10964] [ERROR] Retrying in 1 second.
+[2024-06-07 07:43:28 +0000] [10964] [ERROR] Connection in use: ('0.0.0.0', 8000)
+[2024-06-07 07:43:28 +0000] [10964] [ERROR] Retrying in 1 second.
+[2024-06-07 07:43:29 +0000] [10964] [ERROR] Connection in use: ('0.0.0.0', 8000)
+[2024-06-07 07:43:29 +0000] [10964] [ERROR] Retrying in 1 second.
+[2024-06-07 07:43:30 +0000] [10964] [ERROR] Can't connect to ('0.0.0.0', 8000)
