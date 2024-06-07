@@ -6,13 +6,12 @@ html, body {
 }
 
 header {
-  min-height: 50px;
+    min-height: 50px;
 }
 
 footer {
-  min-height: 50px;
+    min-height: 50px;
 }
-
 
 .wrapper {
     display: flex;
@@ -254,6 +253,7 @@ body {
 .content {
     flex: 1;
 }
+
 /*---LOGIN PAGE CONTENT---*/
 
 
@@ -574,6 +574,28 @@ footer {
 footer p {
     margin: 0; /* Reset the margin for the paragraph */
 }
+
+/*--MOBILE OPTIMIZATION--*/
+
+@media (max-width: 600px) {
+    .navbar-link {
+        flex: 1 100%;
+        text-align: center;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        background-size: 50%;
+    }
+}
+
 
 @media (max-width: 600px) {
     .navbar-link {
