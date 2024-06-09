@@ -17,6 +17,8 @@
         <li cass="navbar-link"><a class="navbar-item"  href="/rules">RULES</a></li>
       </ul>
     </header>
+
+
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for msg in messages %}
@@ -27,31 +29,34 @@
 
 
     <div class="word_figure">
-      {% if session.tries == 6 %}
-        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/H.png" alt="6 tries left">
 
-      {% elif session.tries == 5 %}
-        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/A.png" alt="5 tries left">
+      <div class="game_images">
+        {% if session.tries == 6 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/H.png" alt="6 tries left">
 
-      {% elif session.tries == 4 %}
-        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/N.png" alt="4 tries left">
+        {% elif session.tries == 5 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/A.png" alt="5 tries left">
 
-      {% elif session.tries == 3 %}
-        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/G.png" alt="3 tries left">
+        {% elif session.tries == 4 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/N.png" alt="4 tries left">
 
-      {% elif session.tries == 2 %}
-        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/M.png" alt="2 tries left">
+        {% elif session.tries == 3 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/G.png" alt="3 tries left">
 
-      {% elif session.tries == 1 %}
-        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/A2.png" alt="1 tries left">
+        {% elif session.tries == 2 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/M.png" alt="2 tries left">
 
-      {% elif session.tries == 0 %}
-        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/N.png" alt="0 tries left">
+        {% elif session.tries == 1 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/A2.png" alt="1 tries left">
 
-      {% else %}
-        <img class="placeholder" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/PLACEHOLDER.png" alt="Hangman Logo">
-      {% endif %}
+        {% elif session.tries == 0 %}
+          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/N.png" alt="0 tries left">
 
+        {% else %}
+          <img class="placeholder" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/PLACEHOLDER.png" alt="Hangman Logo">
+        {% endif %}
+      </div>
+      
       <div class="previous-guess">
         <p>Cross off previous guesses.</p>
         <u1>
@@ -85,9 +90,11 @@
       </div> 
     </div>
 
+
     <div class="unknown-word">
       <p class="print-word">{{session.unknown_word}}</p>
     </div>
+
 
     <div class="new-game">
       <form action="{{url_for('endgame')}}" method = "post">

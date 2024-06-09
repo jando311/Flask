@@ -554,6 +554,17 @@ footer p {
 
 /*---MOBILE OPTIMIZATION---*/
 
+/*---MOBILE GENERAL---*/
+
+@media (max-width: 600px){
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100vh;
+    }
+}
+
 /*---MOBILE NAVBAR---*/
 
 @media (max-width: 600px) {
@@ -571,80 +582,85 @@ footer p {
 /*---MOBILE HOME---*/
 
 @media (max-width: 600px) {
+
+    .login-msg {
+        margin: 0;
+        top: 25px;
+    }
     .menu_play {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        margin-top: -60px;
-    }
-
-    .go_play {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-
-    .go_play h3 {
-        margin-top: 0;
-        margin-left: 195px;
-
-    }
-
-    .button_play {
-        margin-top: -20px;
-        margin-bottom: 25px;
-        margin-left: 210px;
-    }
-
-    .content_play {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        margin-top: 25px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .header_play {
+        margin-top: 48px;
+        margin-left: 0; 
+        margin-right: 5px;
+        margin-bottom: 0;
+
+        font-size: 12px;
+    }
+
+    .go_play {
+        margin: 0;
+    }
+
+    .content_play {
+        margin: 0;
+    }
+
+    .button_play {
+        margin-top: 40px;
+        margin-left: 0; 
+        margin-right: 25px;
+        margin-bottom: 0;
+
+        padding: 5px 10px;
+        font-size: 12px;
+        box-shadow: 0 4px;
     }
 
     .image_play {
-        width: 200px;
-        height: 200px;
+        height: 150px;
+        width: 150px;
     }
 
     .menu_rules {
         display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        margin-top: -65px;
-        margin-bottom: -20;
-    }
-
-    .learn_rules {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-
-    .learn_rules h3 {
-        margin-top: 0;
-        margin-left: 153px;
-        margin-right: 0;
-    }
-
-    .button_rules {
-        margin-left: 200px;
-        margin-bottom: 0px;
-    }
-
-    .content_rules {
-        display: flex;
         flex-direction: row;
         justify-content: center;
+        padding-top: 25px;
+        padding-bottom: 25px;
     }
 
     .image_rules {
-        width: 200px;
-        height: 200px;
-        margin-bottom: 25px;
+        height: 150px;
+        width: 150px;
     }
-}
 
+    .header_rules {
+        margin-top: 49px;
+        margin-left: 25px;
+        margin-right: 5px;
+        font-size: 12px;
+    }
+
+    .button_rules {
+        margin-top: 40px;
+        margin-left: 0; 
+        margin-right: 0;
+        margin-bottom: 0;
+
+        padding: 5px 10px;
+        font-size: 12px;
+        box-shadow: 0 4px;
+    }
+
+}
 
 /*---MOBILE GAME---*/
 
@@ -652,40 +668,47 @@ footer p {
     .word_figure {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-end;
         padding-top: 15px;
         padding-bottom: 15px;
-        margin-top: -150px;
+        margin-top: 25px;
+        margin-left: 0;
+        margin-right: 0;
     }
         
     .placeholder {
         height: 200px;
         width: 200px;
-        margin-left: 100px;
+        margin-right: 0;
+        margin-left: 0;
     }
 
     .hangman {
         height: 200px;
         width: 200px;
-        margin-left: 100px;
+        margin-right: 0;
+        margin-left: 0;
     }
 
     .previous-guess {
         height: 100px;
         width: 200px;
-        margin-left: 100px;
-
+        margin-right: 0;
+        margin-left: 0;
     }
 
     .user-form {
         margin: 0;
     }
 
-    .unknown-word {
-        margin-top: -180px;
+    .print-word {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        max-width: 600px;
+        font-size: 15px;
     }
 
     .new-game {
-        margin-top: -160px;
+        margin-top: 50px;
     }
 }
