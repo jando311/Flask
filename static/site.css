@@ -678,21 +678,21 @@ footer p {
         height: 200px;
         width: 200px;
         margin-right: 0;
-        margin-left: 50px;
+        margin-left: 45px;
     }
 
     .hangman {
         height: 200px;
         width: 200px;
         margin-right: 0;
-        margin-left: 50px;
+        margin-left: 45px;
     }
 
     .previous-guess {
         height: 50px;
         width: 200px;
         margin-right: 0;
-        margin-left: 50px;
+        margin-left: 45px;
     }
 
     .user-form {
