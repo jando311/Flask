@@ -27,30 +27,30 @@
 
 
     <div class="word_figure">
-        {% if session.tries == 6 %}
-          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/H.png" alt="6 tries left">
-  
-        {% elif session.tries == 5 %}
-          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/A.png" alt="5 tries left">
-  
-        {% elif session.tries == 4 %}
-          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/N.png" alt="4 tries left">
-  
-        {% elif session.tries == 3 %}
-          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/G.png" alt="3 tries left">
-  
-        {% elif session.tries == 2 %}
-          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/M.png" alt="2 tries left">
-  
-        {% elif session.tries == 1 %}
-          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/A2.png" alt="1 tries left">
-  
-        {% elif session.tries == 0 %}
-          <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/N.png" alt="0 tries left">
+      {% if session.tries == 6 %}
+        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/H.png" alt="6 tries left">
 
-        {% else %}
-          <img class="placeholder" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/PLACEHOLDER.png" alt="Hangman Logo">
-        {% endif %}
+      {% elif session.tries == 5 %}
+        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/A.png" alt="5 tries left">
+
+      {% elif session.tries == 4 %}
+        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/N.png" alt="4 tries left">
+
+      {% elif session.tries == 3 %}
+        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/G.png" alt="3 tries left">
+
+      {% elif session.tries == 2 %}
+        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/M.png" alt="2 tries left">
+
+      {% elif session.tries == 1 %}
+        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/A2.png" alt="1 tries left">
+
+      {% elif session.tries == 0 %}
+        <img class="hangman" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/N.png" alt="0 tries left">
+
+      {% else %}
+        <img class="placeholder" src="https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/PLACEHOLDER.png" alt="Hangman Logo">
+      {% endif %}
 
       <div class="previous-guess">
         <p>Cross off previous guesses.</p>
@@ -72,7 +72,7 @@
             <form action="{{url_for('get_hint')}}" method = "post">
               <p><input class="joker-one" type="submit" value = 'First Joker'></p>
             </form>
-         
+        
           {% elif session.value == 3 and session.hint_2_used == False %}
             <form action="{{url_for('get_hint2')}}" method = "post">
               <p><input class="joker-two" type="submit" value = 'Second Joker'></p>
@@ -83,8 +83,8 @@
           {% endif %}
         </div>
       </div> 
-      
     </div>
+
     <div class="unknown-word">
       <p class="print-word">{{session.unknown_word}}</p>
     </div>

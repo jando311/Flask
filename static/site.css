@@ -1,3 +1,5 @@
+/*---GENERAL---*/
+
 html, body {
     height: 100%;
     margin: 0;
@@ -20,6 +22,7 @@ footer {
     min-height: 100vh;
 }
 
+
 /*---NAVBAR CONTENT---*/
 
 .navbar {
@@ -41,7 +44,6 @@ footer {
 .navbar-item {
     display: block;
     color: black;
-    text-align: center;
     padding: 20px;
     text-decoration: none;
 }
@@ -61,11 +63,9 @@ ul {
     background-color: #ffffff;
   }
   
-
 li {
     float: left;
 }
-
 
 li a {
     display: block;
@@ -85,8 +85,9 @@ li a:hover {
     float: left;
     width: 58px;
 }
-/*---BACKGROUND CONTENT---*/
 
+
+/*---BACKGROUND CONTENT---*/
 
 body {
     background: url("https://dasuvbstlohdvyzcvlkb.supabase.co/storage/v1/object/public/pictures/hangman%20background.png");
@@ -102,8 +103,8 @@ body {
     overflow-x: hidden;
 }
 
-/*---HOME PAGE CONTENT---*/
 
+/*---HOME PAGE CONTENT---*/
 
 .menu_play {
     display: flex;
@@ -157,7 +158,6 @@ body {
     width: 300px;
     height: 300px;
 }
-
 
 .menu_rules {
     display: flex;
@@ -213,18 +213,8 @@ body {
     height: 300px;
 }
 
-/* Mobile Styles */
-@media (max-width: 600px) {
-    .navbar-link {
-      flex: 1 100%;
-    }
-  
-    .menu_play, .menu_rules {
-      flex-direction: column;
-    }
-  }
-/*---RULE PAGE CONTENT---*/
 
+/*---RULE PAGE CONTENT---*/
 
 .rule-sheet {
     color: white;
@@ -242,6 +232,7 @@ body {
     color: white;
     font-size: 20px;
 }
+
 .headline {
     color: white;
     font-size: 30px;
@@ -254,8 +245,8 @@ body {
     flex: 1;
 }
 
-/*---LOGIN PAGE CONTENT---*/
 
+/*---LOGIN PAGE CONTENT---*/
 
 .login-form {
     background-color: #373A40;
@@ -393,15 +384,15 @@ body {
 .button-input {
     font-size: 15px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
     font-weight: bold;
-    text-decoration: none;
-    outline: none;
-    color: #ba5757;
-    background-color: #98beff;
+    color: rgb(255, 255, 255);
+    text-align: center;
     border-radius: 15px;
+    background-color: #98beff;
+    border: 2px white solid;
     box-shadow: 0 9px #8a8a8a;
-    padding: 15px 25px;
-
+    padding: 8px 16px;
 }
 
 .button-input:hover {
@@ -412,17 +403,6 @@ body {
     background-color: #7b9ace;
     box-shadow: 0 5px #666;
     transform: translateY(8px); 
-}
-
-.button-input {
-    font-size: 15px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-style: italic;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    border-radius: 15px;
-    border: 2px white solid;
-    padding: 8px 16px;
 }
 
 .previous-guess {
@@ -440,7 +420,7 @@ body {
     padding-top: 10px;
 }
 
-.previous-guess u1 {
+.previous-guess ul {
     font-size: 14px;
     font-style: italic;    
 }
@@ -456,7 +436,6 @@ body {
     padding-top: 5px;
     padding-bottom: 5px;
 }
-
 
 .new-game {
     display: flex;
@@ -557,73 +536,156 @@ body {
 
 /*---FOOTER PAGE CONTENT---*/
 
-
-
-
 footer {
     width: 100%;
     height: 200px;
     display: flex;
     justify-content: center;
-    align-items: center; /* Center the content vertically */
+    align-items: center; 
     background-color: #DC5F00;
     text-align: center;
     color: white;
 }
 
 footer p {
-    margin: 0; /* Reset the margin for the paragraph */
+    margin: 0; 
 }
 
-/*--MOBILE OPTIMIZATION--*/
+
+/*---MOBILE OPTIMIZATION---*/
+
+/*---MOBILE NAVBAR---*/
 
 @media (max-width: 600px) {
-    .navbar-link {
-        flex: 1 100%;
-        text-align: center;
+    .navbar-item {
+        font-size: 15px;
+        padding: 10px;
     }
 
-    .navbar {
+    .header-logo {
+        height: 40px;
+    }
+
+}
+
+/*---MOBILE HOME---*/
+
+@media (max-width: 600px) {
+    .menu_play {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        justify-content: space-evenly;
+        margin-top: -60px;
+    }
+
+    .go_play {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .go_play h3 {
+        margin-top: 0;
+        margin-left: 195px;
+
+    }
+
+    .button_play {
+        margin-top: -20px;
+        margin-bottom: 25px;
+        margin-left: 210px;
+    }
+
+    .content_play {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .image_play {
+        width: 200px;
+        height: 200px;
+    }
+
+    .menu_rules {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-top: -65px;
+        margin-bottom: -20;
+    }
+
+    .learn_rules {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .learn_rules h3 {
+        margin-top: 0;
+        margin-left: 153px;
+        margin-right: 0;
+    }
+
+    .button_rules {
+        margin-left: 200px;
+        margin-bottom: 0px;
+    }
+
+    .content_rules {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .image_rules {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 25px;
     }
 }
 
+
+/*---MOBILE GAME---*/
+
 @media (max-width: 600px) {
-    body {
-        background-size: 50%;
+    .word_figure {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-top: -150px;
+    }
+        
+    .placeholder {
+        height: 200px;
+        width: 200px;
+        margin-left: 100px;
+    }
+
+    .hangman {
+        height: 200px;
+        width: 200px;
+        margin-left: 100px;
+    }
+
+    .previous-guess {
+        height: 100px;
+        width: 200px;
+        margin-left: 100px;
+
+    }
+
+    .user-form {
+        margin: 0;
+    }
+
+    .unknown-word {
+        margin-top: -180px;
+    }
+
+    .new-game {
+        margin-top: -160px;
     }
 }
-
-
-@media (max-width: 600px) {
-    .navbar-link {
-      flex: 1 100%;
-      text-align: center;
-    }
-  
-    .rule-sheet, .login-form, .word_figure, .previous-guess, .user-input, .unknown-word, .new-game {
-      padding: 0 10px;
-    }
-  
-    .header-logo, .hangman, .placeholder, .image_play, .image_rules {
-      max-width: 100%;
-      height: auto;
-    }
-  
-    .button_play, .button_rules, .submit-button, .button-input, .endgame-button {
-      width: 100%;
-      box-sizing: border-box;
-    }
-  
-    .navbar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .menu_play, .menu_rules {
-      flex-direction: column;
-    }
-  }
