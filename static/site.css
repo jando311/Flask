@@ -599,7 +599,7 @@ footer p {
     .header_play {
         margin-top: 48px;
         margin-left: 0; 
-        margin-right: 5px;
+        margin-right: 15px;
         margin-bottom: 0;
 
         font-size: 12px;
@@ -616,7 +616,7 @@ footer p {
     .button_play {
         margin-top: 40px;
         margin-left: 0; 
-        margin-right: 25px;
+        margin-right: 35px;
         margin-bottom: 0;
 
         padding: 5px 10px;
@@ -644,14 +644,14 @@ footer p {
 
     .header_rules {
         margin-top: 49px;
-        margin-left: 25px;
+        margin-left: 35px;
         margin-right: 5px;
         font-size: 12px;
     }
 
     .button_rules {
         margin-top: 40px;
-        margin-left: 0; 
+        margin-left: 15px; 
         margin-right: 0;
         margin-bottom: 0;
 
@@ -680,21 +680,21 @@ footer p {
         height: 200px;
         width: 200px;
         margin-right: 0;
-        margin-left: 0;
+        margin-left: 100px;
     }
 
     .hangman {
         height: 200px;
         width: 200px;
         margin-right: 0;
-        margin-left: 0;
+        margin-left: 100px;
     }
 
     .previous-guess {
         height: 100px;
         width: 200px;
         margin-right: 0;
-        margin-left: 0;
+        margin-left: 100px;
     }
 
     .user-form {
